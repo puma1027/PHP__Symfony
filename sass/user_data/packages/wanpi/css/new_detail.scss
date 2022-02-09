@@ -1,0 +1,303 @@
+*	{
+  margin:0;
+	padding:0;
+	text-align: left;
+}
+
+#tocca_area {
+	position: relative;
+}
+
+#tocca_area .tocca_title {
+  width:960px;
+ font-size: 11px;
+  margin: 0 0 10px;
+}
+#tocca_area .tocca_title  a { text-decoration: underline;
+}
+
+#tocca_area .img_comment {font-weight:bold;
+ font-size:11px;
+ padding-top:10px;
+}
+#tocca_area .tocca_comment {display:inline-block;
+ width: 320px;
+ max-height:120px;
+ height:120px;
+ margin: 20px 0 0 0;
+ font-size:11px;
+ line-height:18px;
+ letter-spacing:0.15em;
+}
+#tocca_area .photo_on { border: 2px solid #eb8f90;
+ margin: 0 auto;
+}
+    #largeImg { margin-right:10px;
+     float:left;
+     max-width: 322px;
+     width:auto;
+     /*height: 653px;
+     */}
+	#largeImg .large_img_div { border: 1px solid #C5BFB1;
+	 text-align: center;
+	}
+	#largeImg .photo { border: 5px solid #FFFFFF;
+	  margin: 0 auto;
+	}
+#tocca_gallery {
+	width:360px;
+	// border-right:1px solid #D9D2C6;
+	position: absolute;
+	 z-index: 1;
+	 top: 26px;
+	 left:350px;
+	 display:block;
+ // /*padding-right:20px; */
+}
+#tocca_gallery .thum { }
+#tocca_gallery .thum td { vertical-align: middle;
+ padding:2px 3px 0 0;
+}
+#product_div {padding:7px 0 30px 0;
+	margin-top:-90px;
+}
+.product_table_title{/*padding: 20px 0 5px 0;
+	*/}
+.product_table { border: 1px solid #BFB6A3;
+ letter-spacing: 0.1em;
+ font-size: 11px;
+ /*width: 100%;
+ */width:320px;
+}
+.product_table  *{	padding: 5px 10px;
+}
+.product_table  th.th_main{width: 75px;
+ border-bottom: 1px solid #D9D1C2;
+ border-right: 1px solid #D9D1C2;
+ background-color: #F1E6D4;
+ font-weight: bold;
+ padding-left: 15px;
+}
+.product_table  th.th_last{vertical-align:middle;
+ width: 75px;
+ border-right: 1px solid #D9D1C2;
+ background-color: #F1E6D4;
+ font-weight: bold;
+ padding-left: 15px;
+}
+.product_table  td.td_main{vertical-align:middle;
+ border-bottom: 1px solid #D9D1C2;
+ background-color: #F6F2F2}
+.product_table  td.td_last{background-color: #F6F2F2}
+.size_table {border: 1px solid #BFB6A3;
+ letter-spacing: 0.1em;
+ font-size: 11px;
+ width: 100%;
+}
+.size_table  td.td_size_main{font-size: 10px;
+ width: 53px;
+ text-align:center;
+ vertical-align:middle;
+ padding: 5px 2px;
+ border-right: 1px solid #D9D1C2;
+ border-bottom: 1px solid #D9D1C2;
+ background-color: #F6F2F2}
+.size_table  td.td_size_right{text-align:center;
+ border-right: 1px solid #D9D1C2;
+ background-color: #F6F2F2;
+ padding: 5px 0px;
+ }
+.size_table  td.td_right_last{font-size: 10px;
+ width: 53px;
+ text-align:center;
+ vertical-align:middle;
+ background-color: #F6F2F2;
+ border-bottom: 1px solid #D9D1C2;
+}
+.size_table  td.td_size_last{text-align:center;
+ background-color: #F6F2F2}
+.size_table  th.th_last{vertical-align:middle;
+ width: 75px;
+ border-right: 1px solid #D9D1C2;
+ background-color: #F1E6D4;
+ font-weight: bold;
+ padding-left: 15px;
+}
+.sub_table, .sub_table *{border: none;
+ padding: 0;
+}
+.review_img{text-align: center;
+ }
+.ratingblock {    float: left;
+    height: 15px;
+    margin-right: 0;
+    padding: 3px;
+    width: 75px;
+	/*position: absolute;
+*/	/*top: 38px;
+*/	left: -8px;
+}
+.unit-rating {    background: url("../img/new_detail/rating.png") repeat-x scroll left top transparent;
+    height: 15px;
+    list-style: none outside none;
+    margin-left:-10px;
+    padding: 0;
+    position: relative;
+}
+.unit-rating li.current-rating {    background: url("../img/new_detail/rating.png") repeat scroll left bottom transparent;
+    display: block;
+    height: 15px;
+    position: absolute;
+    text-indent: -9000px;
+    z-index: 1;
+}
+/*.calendar_main {margin:30px 0px 0px 400px;
+ width:210px;
+ height: 650px;
+}
+*//*20130228 N00018 asa*//*.calendar_main {margin:30px 0px 0px 485px;
+ padding: 0 15px;
+ width:210px;
+ height: 623px;
+ border-left:1px solid #D9D2C6;
+}
+*//* N00048 Del 20130509 */.calendar_main {margin:0px 0px 0px 385px;
+ padding: 0 15px;
+ width:210px;
+ height: 560px;
+ border-left:1px solid #D9D2C6;
+}
+/* N00048 Add 20130509 */#caren { border: none;
+ margin:0;
+ padding:0;
+}
+#caren th, #caren td {	border: none;
+    border-right: 1px solid #E5DECF;
+    font-size: 11px;
+    text-align: center;
+}
+#caren th {border: none;
+	background-color:#FFFFFF;
+}
+#caren td.last { border:none;
+}
+#caren span.red_cal {background-color:#FFC5C6;
+ border-radius: 3px;
+ display: inline-block;
+ text-align: center;
+ width: 21px;
+}
+#caren span.grey_cal {background-color:#CCCCCC;
+ border-radius: 3px;
+ display: inline-block;
+ text-align: center;
+ width: 21px;
+}
+.reservations_day {  font-size:60%;
+  border:solid 1px #FFFFFF;
+  color:#FFFFFF;
+  background-color:#FFFFFF;
+  padding:0px 10px 0px 10px;
+  margin:0px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+.reserved_day {  font-size:60%;
+  border:solid 1px #FFC5C6;
+  color:#FFC5C6;
+  background-color:#FFC5C6;
+  padding:0px 10px 0px 10px;
+  margin:0px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+.not_reservations_day {  font-size:60%;
+  border:solid 1px #CCCCCC;
+  color:#CCCCCC;
+  background-color:#CCCCCC;
+  padding:0px 10px 0px 10px;
+  margin:0px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+/*#size_area {padding:10px 0 0 0;
+}
+*//*20130228 N00018 asa*//*#size_area {margin:0px 0px 0px 100px;
+ padding:36px 0 0 0;
+}
+*//* N00048 Del 20130509 */#size_area {margin:0px 0px 0px 150px;
+ padding:36px 0 0 0;
+}
+/* N00048 Add 20130509 */.body_type_tb {padding:0;
+ margin:0;
+ width:100%;
+ }
+.body_type_tb *{padding:0;
+}
+.recommend_area {padding:50px 0 0 0;
+ display: block;
+ /** position:relative;
+ left:-350px;
+ */}
+.recommend_area .gallery_area {padding:18px 0 0 0;
+}
+.recommend_area .gallery_area .photo { border: 1px solid #C5BFB1;
+    margin: 0 auto;
+}
+.recommend_area .gallery_area .product_memo {display:inline-table;
+ font-size:12px;
+ margin: 0 11px 0 0;
+ width:100px;
+}
+.recommend_area .gallery_area  p.tocca {font-weight:bold;
+ line-height:25px;
+ font-size:12px;
+}
+.recommend_area .gallery_area  p.pro_title {line-height:13px;
+ font-size:12px;
+}
+.recommend_area .gallery_area  p.price {font-size:15px;
+ color:red;
+ line-height:40px;
+}
+.recommend_area p.rec_title {padding:20px 0 0 0;
+ display: inline-block;
+}
+.recommend_area .recommend_tb td{padding-right:18px;
+ width:100px;
+}
+.recommend_area .recommend_tb td.last{width:100px;
+ padding:0;
+}
+/*201706 add*/.product_list_title{  width: 280px;
+  position: relative;
+  /*相対位置*/  padding: 0.5em 0.5em 0.5em 1.5em;
+/*アイコン分のスペース*/  line-height: 1.4;
+/*行高*/  color: #50392D;
+/*文字色*/  border-top: dotted 1px gray;
+  border-bottom: dotted 1px gray;
+  background: #efefef;
+}
+.product_list_title:before{ font-family: FontAwesome;
+	/*忘れずに*/  content: "\f138";
+/*アイコンのユニコード*/  position: absolute;
+/*絶対位置*/  font-size: 1em;
+/*サイズ*/  left: 0.25em;
+/*アイコンの位置*/  top: 0.5em;
+/*アイコンの位置*/  color: #50392D;
+ /*アイコン色*/}
+.set_list{  width: 100%;
+  margin-bottom: 8px;
+  padding: 2px 0 2px 8px;
+   font-size: 16px;
+  font-weight: bold;
+  font-family : 'Kozuka Mincho Pro', 'Kozuka Mincho Std', '小塚明朝 Pro R', '小塚明朝 Std R',     'Hiragino Mincho Pro', 'ヒラギノ明朝 Pro W3', 'ＭＳ Ｐ明朝', 'Times', 'Times New Roman', serif ;
+  color: #fff;
+  background-color: #463024;
+}
+/*IE10以降のみに適応*/@media all and (-ms-high-contrast:none){  .set_list {      padding: 12px 0 0 5px;
+   }
+}

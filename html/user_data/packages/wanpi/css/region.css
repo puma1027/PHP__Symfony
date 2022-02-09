@@ -1,0 +1,51 @@
+#contents a {text-decoration:none;}
+p {font-size:14px;}
+.attention {color:#FF0000;}
+a:hover img {  opacity: 0.5;  filter: alpha(opacity=70);  -ms-filter: "alpha(opacity=70)";}
+.maternity1_main {  box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.3);}
+.first_area {  margin:10px 10px 20px 10px;}
+.what_is {  background-color:#C4C091;  font-size:160%;  border-top-left-radius:10px;  border-top-right-radius:10px;  color:#FFFFFF;  padding:5px 0px;  text-align:center;}
+.about_this {  border:solid 3px #C4C091;  padding:20px;  border-bottom-left-radius:10px;  border-bottom-right-radius:10px;  /* add */  position: relative;  overflow: hidden;}
+.about_menu{  float: left;  left: 50%;  position: relative;}
+.about_menu_item{  float: left;  left: -50%;  position: relative;  font-size: 1.3em;}
+li.about_menu_item.left_item {  margin: 0 0 0 25px;}
+.about_this p{  line-height:180%;  padding-bottom:20px;}
+.second_area {  margin:10px 10px 0px 10px;  padding:10px;}
+.second_area p{  line-height:180%;  padding-top:10px;  padding-bottom:10px;}
+.experiences_area {  margin:10px;  position: relative;  overflow: hidden;}
+h3{margin-top: 35px;}
+h4 {background-image: none;    background-color: #ddd;    border-radius: 10px;    position: relative;    padding: 10px 5px 0 10px;    height: 30px;    color: #333;    font-size: 16px;    margin: 10px 0 10px 15px;    width: 650px;}
+h4:after {  border:10px solid transparent;  border-top-color:#ddd;  border-bottom-width:0;  bottom:-10px;  content:"";  display:block;  left:100px;  position:absolute;  width:0;}
+.pic_type3 {  height:330px;  padding:10px;}
+.pic_type3 li {  float:left;  margin:0 0 10px 10px;  border: 1px solid #DDDDDD;  padding:3px;  background-color:#FFFFFF;  height:420px;}
+.pic_type3 img {  width:225px;}
+.pic_type3 p {  text-align:center;  margin:5px;}
+.pic_type3 div {  background-color:#D70033;  color:#FFFFFF;  border-radius: 10px;        /* CSS3草案 */  -webkit-border-radius: 10px;    /* Safari,Google Chrome用 */  -moz-border-radius: 10px;   /* Firefox用 */  padding:5px 20px;  margin:5px;  text-align:center;}
+.pic_type4 {    height: 320px;    padding: 10px;}
+.pic_type4 li{  float: left;  width: 22%;  margin: 0px 0 10px 11px;  border: 1px solid #DDDDDD;  padding: 4px;  background-color: #FFFFFF;  height: 310px;}
+.pic_type4 li img{  width: 100%;}
+.pic_type4 li a p {  text-align: center;}
+.pic_type2{  height: 320px;  padding: 10px;}
+.pic_type2 li{  float: left;  width: 47%;  margin: 0px 0 10px 11px;  border: 1px solid #DDDDDD;  padding: 4px;  background-color: #FFFFFF;}
+.pic_type2 img{  width: 100%;}
+.pic_type2 li a p {    text-align: center;}
+.btn3{  background-color: #D70033;  color: #FFFFFF;  border-radius: 10px;  -webkit-border-radius: 10px;  -moz-border-radius: 10px;  padding: 5px 20px;  margin: 5px;  text-align: center;}
+.btn6{  background-color: #D70033;  color: #FFFFFF;  border-radius: 10px;  -webkit-border-radius: 10px;  -moz-border-radius: 10px;  padding: 5px 20px;  margin: 5px;  text-align: center;}
+.grad-item {  /* position: relative;  overflow: hidden;  height: 495px; */ /*隠した状態の高さ*/}
+.grad-item::before {  /* display: block;  position: absolute;  bottom: 0;  left: 0;  width: 100%;  height: 40px; */ /*グラデーションで隠す高さ*/  /* background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.9) 50%, #fff 100%); */  /* background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.9) 50%, #fff 100%); */  /* content: ""; */}
+.grad-trigger {  /* display: none; */ /*チェックボックスは常に非表示*/}
+.grad-trigger:checked + .grad-btn {  /* display: none; */ /*チェックされていたら、grad-btnを非表示にする*/}
+.grad-trigger:checked ~ .grad-item {  /* height: auto; */ /*チェックされていたら、高さを戻す*/}
+.grad-trigger:checked ~ .grad-item::before {  /* display: none; */ /*チェックされていたら、grad-itemのbeforeを非表示にする*/}
+.grad-trigger:checked ~ .grad-btn::before {  /* content: "4位以下を閉じる" */ /*チェックされていたら、文言を変更する*/}
+img.col6img {width: 103px;}
+li.col6li {height: 185px;}
+.box_green {position:relative;  margin:30px 20px; padding:0.5em 1em; border:solid 1px #009900;}
+.box_orange{border: solid 1px #FDC088;}
+.box_green .box-title {position: absolute;display: inline-block;top: -27px;left: -3px;padding: 0 9px;height: 25px;line-height: 25px;font-size: 14px;background: rgba(0, 153, 0, 0.8);  color: #ffffff;font-weight: bold;border-radius: 5px 5px 0 0;}
+#box_title_orange{color:#333; background:#FDC088;font-weight: 100;}
+.box_green dd {margin: 0;  padding: 5px 0;}
+h5{font-size:16px; color:#666; font-weight:bolder; line-height: 16px; padding: 10px 5px;}
+.pink_btn_link{    display: block;    background: #c77485;    color: #fff;    height: 44px;    line-height: 44px;    text-align: center;    width: 30%;    font-size: 16px;    font-feature-settings: "pkna";    letter-spacing: 1px;    position: relative;    padding: 0 20px;    border-bottom: solid 2px #ccc;    margin: 30px auto;    border-radius: 8px;}
+.matome_p{margin-bottom: 50px;}
+.region_img{width: 76%; display: block; margin:15px 0 10px 20px;}

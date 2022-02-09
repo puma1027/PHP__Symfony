@@ -1,0 +1,32 @@
+//初期設定
+//配列（disp00～09）
+var disp=new Array(10);
+
+//要素代入
+disp[0] = "disp00";
+disp[1] = "disp01";
+disp[2] = "disp02";
+disp[3] = "disp03";
+disp[4] = "disp04";
+disp[5] = "disp05";
+disp[6] = "disp06";
+disp[7] = "disp07";
+disp[8] = "disp08";
+disp[9] = "disp09";
+
+//表示・非表示処理
+function dispChange(view) {
+	for(i=0;i<disp.length;i++){
+		dispstyle = document.getElementById(disp[i]).style;
+		if(disp[i]==view){
+			if (dispstyle.display == 'none'){
+				dispstyle.display = "block";
+			}
+			 else {
+				dispstyle.display = "none";
+			}
+		} else {
+			dispstyle.display = 'none';
+		}
+	}
+}

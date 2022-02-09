@@ -1,0 +1,49 @@
+/* ===== scss settings =============================================
+   For Wanpi no Mahou
+   ==================================================================== */
+
+// ----------------------------------------------------------------------
+// color
+// ----------------------------------------------------------------------
+
+$colorbg: #f8f6f4; // ベージュっぽいいろ
+$colormain: #65504e;// brown
+$colormaindark: #412f2e;
+
+$colordark: #310304; // 茶色
+
+$colorsub: #f2ecdd; // ベージュ
+$colorsubdark: #ded2b3; // 濃いベージュ
+// $colororange: #fa6602;//orange
+
+// $colorpink: #e76da3;
+
+$coloraccent: #c77485; // pink
+// $coloraccentstrong: #f05242; // 基本的に予約ボタンのみ。朱色
+
+$colorlink: #c77485;
+
+$colororange: #dac068;
+$colorgreen: #4CBBB4;
+
+$colorgray: #C1C1C1;
+$colorgraylight: #f2f2f2;
+$colorgraydark: #b2b2b2;
+
+$colortext: #555555;
+
+$colorline: #acacac;
+
+$colortable_odd: $colorgraylight;
+$colortable_odd_light: #f9f9f9;
+$colortable_even: #e9e9e9;
+$colortable_even_light: #eeeeee;
+
+$color_border: rgba(101, 80, 78, 0.5);
+
+// $colorbtnlabel: #9a0000;
+
+// ----------------------------------------------------------------------
+// width
+// ----------------------------------------------------------------------
+$wrapperwidth: 1134px;

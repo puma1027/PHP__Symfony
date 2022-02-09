@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+#calendar_area .block0120130315 {
+	width: 100%;
+	margin: 0 47px 0;
+	border: 1px solid #8b8b8b;
+	background: #f7f2ef;
+}
+
+#calendar_area .block0120130315 .box0120130315 {
+	float: left;
+	padding: 5px 0 0 14px;
+}
+
+#calendar_area .block0120130315 .box0120130315 .leaf0220130315 {
+	padding: 5px 0 0 0;
+}
+
+#calendar_area .leaf0220130315 table {
+	background: #ffffff;
+}
+
+#calendar_area .leaf0220130315 table tr td {
+	vertical-align: middle;
+}
+
+#calendar_area .leaf0220130315 table tr td.left20130315 {
+
+}
+
+#calendar_area .leaf0220130315 {
+	padding: 4px 0 0 0;
+}
+
+#calendar_area .leaf0220130315 #tabs20130315 table {
+	margin: 0 auto;
+}
+
+
+
+/* table0120130315 予約可能/予約不可
+*********************************************************************************************/
+
+#calendar_area .leaf0220130315 #tabs20130315 table.table0120130315 {
+	/* margin: 5px 5px 5px 36px; */
+}
+
+#calendar_area .leaf0220130315 #tabs20130315 table.table0120130315 tr td {
+	vertical-align: middle;
+	padding: 6px;
+}
+
+#calendar_area .leaf0220130315 #tabs20130315 table.table0120130315 tr td img {
+	position: relative;
+	margin: 0 6px 0 0;
+}
+
+/* table0220130315 曜日
+*********************************************************************************************/
+
+#calendar_area .leaf0220130315 #tabs20130315 table.ui-datepicker-calendar {
+/* 	margin: 4px auto 0; */
+	border: 1px solid #d2cbc0;
+	border-bottom: none;
+	width: 100%;
+}
+
+#calendar_area .leaf0220130315 #tabs20130315 table.ui-datepicker-calendar tr td {
+	text-align: center;
+}
+
+#calendar_area .leaf0220130315 #tabs20130315 table.ui-datepicker-calendar tr td span {
+	color: #503312;
+	background-color: #9a9a9a !important;
+}
+
+.ui-datepicker-header, .ui-widget-header{
+	display: none;
+	height: 0px;
+	border: 0px;
+	padding: 0px;
+	background: none;
+	border-top-left-radius: 0px;
+}
+
+/* table0320130315 日付
+*********************************************************************************************/
+
+#calendar_area .leaf0220130315 #tabs20130315 table.ui-datepicker-calendar tr td {
+	border: 1px solid #d2cbc0;
+	text-align: center;
+}
+
+.ui-state-default {
+	background-color: #FFFFFF !important;
+	color: #503312;
+}
+
+.ui-state-defaul {
+	background: #a9072e !important;
+	color: #ffffff;
+}
+
+/* table0420130315 お届け先等
+*********************************************************************************************/
+.calendar_lbl_non {
+
+	text-align: center;
+
+}

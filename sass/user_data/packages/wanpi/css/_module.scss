@@ -1,0 +1,183 @@
+/* ===== Module =============================================
+   Author: Tomohiro Kiuchi
+   ==================================================================== */
+
+/* ==========================================================================
+   Module
+   ========================================================================== */
+.mauto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+$num: 5px;
+
+@for $value from 0 through 20 {
+  .mall#{$value * 5 } {
+    margin: $num * $value !important;
+
+    @include media(sp) {
+      margin: round($num * $value/2) !important;
+    }
+  }
+}
+
+@for $value from 0 through 20 {
+  .mt#{$value * 5 } {
+    margin-top: $num * $value !important;
+
+    @include media(sp) {
+      margin-top: round($num * $value/2) !important;
+    }
+  }
+}
+@for $value from 0 through 20 {
+  .mb#{$value * 5} {
+    margin-bottom: $num * $value !important;
+
+    @include media(sp) {
+      margin-bottom: round($num * $value/2) !important;
+    }
+  }
+}
+@for $value from 0 through 20 {
+  .mr#{$value * 5} {
+    margin-right: $num * $value !important;
+
+    @include media(sp) {
+      margin-right: round($num * $value/2) !important;
+    }
+  }
+}
+@for $value from 0 through 20 {
+  .ml#{$value * 5} {
+    margin-left: $num * $value !important;
+
+    @include media(sp) {
+      margin-left: round($num * $value/2) !important;
+    }
+  }
+}
+
+/*--------------------
+ *    padding
+ *--------------------*/
+
+@for $value from 0 through 20 {
+  .pall#{$value * 5 } {
+    padding: $num * $value !important;
+
+    @include media(sp) {
+      padding: round($num * $value/2) !important;
+    }
+  }
+}
+
+@for $value from 0 through 20 {
+  .pt#{$value * 5 } {
+    padding-top: $num * $value !important;
+
+    @include media(sp) {
+      padding-top: round($num * $value/2) !important;
+    }
+  }
+}
+@for $value from 0 through 20 {
+  .pb#{$value * 5} {
+    padding-bottom: $num * $value !important;
+
+    @include media(sp) {
+      padding-bottom: round($num * $value/2) !important;
+    }
+  }
+}
+@for $value from 0 through 20 {
+  .pr#{$value * 5} {
+    padding-right: $num * $value !important;
+
+    @include media(sp) {
+      padding-right: round($num * $value/2) !important;
+    }
+  }
+}
+@for $value from 0 through 20 {
+  .pl#{$value * 5} {
+    padding-left: $num * $value !important;
+
+    @include media(sp) {
+      padding-left: round($num * $value/2) !important;
+    }
+  }
+}
+
+/*	font-size
+------------------------------------*/
+.small {
+  @include fs(12);
+}
+.large {
+  @include fs(20);
+}
+.x-large {
+  @include fs(28);
+}
+
+.fs12 {
+  @include fs(12);
+}
+.fs14 {
+  @include fs(14);
+}
+/*  color
+------------------------------------*/
+.colorpink {
+  color: $coloraccent_vivid;
+}
+
+/*	text lifter
+------------------------------------*/
+.bold { font-weight: bold; }
+
+.txtc {
+	text-align: center;
+}
+.txtl {
+	text-align: left;
+}
+.txtr{
+	text-align: right;
+}
+
+
+
+/*  images
+------------------------------------*/
+.widthfull {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/*	float
+------------------------------------*/
+.fleft { float: left; }
+.fright { float: right;}
+.fclear { clear:both;}
+.fnone {
+  float: none !important;
+}
+
+/*	clearfix
+------------------------------------*/
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}

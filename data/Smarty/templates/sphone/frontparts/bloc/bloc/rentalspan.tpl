@@ -1,0 +1,2 @@
+<div class="homemaintext"><img class="homemaintext__item" src="/user_data/packages/sphone/img/home_main_text.svg"></div>
+<div class="scheduleddatebox"><span class="scheduleddatebox__label">最短のお届け予定日：</span><span class="scheduleddatebox__date"><a href="<!--{$smarty.const.URL_DIR}-->products/list.php?<!--{php}--> echo $this->_tpl_vars['search_link']; <!--{/php}-->"><!--{$schedule_lbl}--></a></span></div>

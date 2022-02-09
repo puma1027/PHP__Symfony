@@ -1,0 +1,1078 @@
+/* ===== Main style =============================================
+	 Author: Onepi-no-Maho
+	 ==================================================================== */
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic);
+
+body,
+html {
+
+}
+
+//font-size 初期値を10pxに設定
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: "Open Sans" , "Helvetica Neue" , Helvetica , Arial, "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo, sans-serif;
+	font-weight: 500;
+	@include fs(14);
+	font-smoothing: antialiased;
+	box-sizing: border-box;
+	word-wrap: break-word;
+	// background: $colorbg;
+	line-height: 1;
+
+	// &.s-open {
+	// 	position: fixed !important;
+	// 	overflow: hidden;
+	// }
+}
+
+a {
+	transition: .2s ease-in-out;
+
+	&:hover {
+		transition: .2s ease-in-out;
+	}
+}
+.l-header {
+	position: relative;
+	min-width: $wrapperwidth;
+}
+.l-content {
+	margin: 0 auto;
+
+	&--legacy {
+		width: 960px; // 元々のサイト幅
+	}
+}
+.l-footer {
+	clear: both;
+	width: 100%;
+	// background: $colormain;
+	@include bg_noiz($colormain);
+	transform: translateY(60px);
+}
+#pw_header {
+	h1 {
+		background: $coloraccent;
+	}
+}
+
+.header__logo {
+	display: inline-block;
+	vertical-align: top;
+	width: 204px;
+	height: 80px;
+	overflow: hidden;
+
+}
+.header__logo__item {
+	background: none;
+	padding: 0;
+	width: 194px;
+	margin: 10px 0 10px 10px;
+	height: 60px;
+	box-sizing: border-box;
+
+	a {
+		display: block;
+	}
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+}
+
+// 左カラムのimgの下に余白ができた。
+// 一時しのぎ。後で個別に直す。
+#left {
+	img {
+		display: block;
+	}
+}
+/* ==========================================================================
+   G nav
+   ========================================================================== */
+.mainnav {
+	padding: 0 0 10px;
+
+	&__grp {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+
+	}
+	&__item {
+		display: table-cell;
+		position: relative;
+
+		&::after {
+			width: 1px;
+			height: 100%;
+			content: '';
+			border-right: 1px solid #fff;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+	&__link {
+		display: block;
+		background: $colormain;
+		color: #eee;
+		height: 44px;
+		line-height: 44px;
+		text-align: center;
+		@include fs(14);
+		@include fontpm();
+		position: relative;
+		&:visited {
+			color: #fff;
+		}
+
+		&:hover {
+			text-decoration: none;
+			color: #fff;
+
+			background: $colormain - #111;
+		}
+		&--current {
+			background: $coloraccent;
+			&:hover {
+				background: $coloraccent;
+			}
+		}
+
+		&::before {
+			position: absolute;
+			content: '';
+			display: block;
+			width: 100%;
+			height: 1px;
+			border-top: 1px dotted #f7eeda;
+			top: 2px;
+			z-index: 1;
+		}
+
+		&::after {
+			position: absolute;
+			content: '';
+			display: block;
+			width: 100%;
+			height: 1px;
+			border-top: 1px dotted #f7eeda;
+			bottom: 2px;
+			z-index: 1;
+		}
+
+
+	}
+}
+/* ==========================================================================
+   カートボタン周り
+   ========================================================================== */
+.header__mypagenav {
+	position: absolute;
+	top: 32px;
+	right: 10px;
+
+	&__greeting {
+
+	}
+
+	&__grp {
+		font-size: 0;
+		margin: 10px 0 0;
+	}
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		@include fs(13);
+		margin: 0 0 0 5px;
+		position: relative;
+		&:first-child{
+			margin-left: 0;
+		}
+	}
+	&__link {
+		display: block;
+		background: #fff;
+		height: 32px;
+		line-height: 30px;
+		border: 1px solid #aaa;
+		border-radius: 5px;
+		padding: 0;
+		box-sizing: border-box;
+		text-align: center;
+		position: relative;
+		text-indent: 1.8em;
+		color: $colormain;
+
+		&:hover {
+			color: $colormain;
+			background: $colorsub;
+			text-decoration: none;
+		}
+		&:visited {
+			color: $colormain;
+		}
+		&--enroll {
+			width: 130px;
+			&::before {
+				content: '';
+				background: url(/user_data/img/icon_enroll.svg) no-repeat;
+				display: inline-block;
+				position: absolute;
+				top: 50%;
+				left: 16px;
+				transform: translateY(-50%);
+				width: 20px;
+				height: 16px;
+			}
+		}
+		&--logout {
+			width: 130px;
+			&::before {
+				content: '';
+				background: url(/user_data/img/icon_logout.svg) no-repeat;
+				display: inline-block;
+				position: absolute;
+				top: 50%;
+				left: 18px;
+				transform: translateY(-50%);
+				width: 20px;
+				height: 20px;
+			}
+		}
+		&--my {
+			width: 130px;
+			&::before {
+				content: '';
+				background: url(/user_data/img/icon_lady.svg) no-repeat;
+				display: inline-block;
+				position: absolute;
+				top: 50%;
+				left: 22px;
+				transform: translateY(-50%);
+				width: 20px;
+				height: 20px;
+			}
+		}
+		&--fav {
+			width: 132px;
+			&::before {
+				content: '';
+				background: url(/user_data/img/icon_heart.svg) no-repeat;
+				display: inline-block;
+				position: absolute;
+				top: 50%;
+				left: 21px;
+				transform: translateY(-50%);
+				width: 20px;
+				height: 16px;
+			}
+		}
+		&--cart {
+			width: 158px;
+			border-color: $coloraccentstrong;
+			background: $coloraccentstrong;
+			color: #fff;
+
+			&::before {
+				content: '';
+				background: url(/user_data/img/icon_cart_white.svg) no-repeat;
+				display: inline-block;
+				position: absolute;
+				top: 50%;
+				left: 15px;
+				transform: translateY(-50%);
+				width: 20px;
+				height: 20px;
+			}
+
+			&:hover {
+				color: #fff;
+				background: $coloraccentstrong - #111;
+			}
+			&:visited {
+				color: #fff;
+			}
+		}
+
+
+	}
+}
+
+.fukidashi {
+	position: absolute;
+	background: #fff;
+	display: block;
+	border: $colorsubdark 1px solid;
+	border-radius: 6px;
+	top: -100%;
+	left: 0;
+	width: 132px;
+	text-align: center;
+	@include fs(13);
+	line-height: 22px;
+	height: 24px;
+	box-sizing: border-box;
+
+	&--cart {
+		width: 158px;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		display: block;
+		width: 0;
+		height: 0;
+		right: 50%;
+		bottom: -7px;
+		border-top: 7px solid $colorsubdark;
+		border-right: 7px solid transparent;
+		border-left: 7px solid transparent;
+		transform: translateX(50%);
+	}
+	&::after {
+		content: '';
+		position: absolute;
+		display: block;
+		width: 0;
+		height: 0;
+		right: 50%;
+		bottom: -5px;
+		border-top: 7px solid #fff;
+		border-right: 7px solid transparent;
+		border-left: 7px solid transparent;
+		transform: translateX(50%);
+	}
+}
+
+
+/* ==========================================================================
+   footer
+   ========================================================================== */
+.footer__inner {
+	width: $wrapper_wide_width;
+	padding: 20px 20px 0;
+	margin: 0 auto;
+	box-sizing: border-box;
+	position: relative;
+}
+
+// .footer__pagetopbtn {
+// 	position: absolute;
+// 	right: 30px;
+// 	top: -30px;
+// 	height: 30px;
+// }
+// .footer__pagetopbtn__grp {
+// 	font-size: 0;
+// }
+// .footer__pagetopbtn__item {
+// 	@include fs(10);
+// 	display: inline-block;
+// 	vertical-align: top;
+// 	margin: 0 0 0 10px;
+
+// 	a {
+// 		display: block;
+// 		text-align: center;
+// 		background: #fff;
+// 		border-top: 1px solid $colormain;
+// 		border-right: 1px solid $colormain;
+// 		border-left: 1px solid $colormain;
+// 		border-top-right-radius: 6px;
+// 		border-top-left-radius: 6px;
+// 		height: 30px;
+// 		box-sizing: border-box;
+// 		padding: 3px 0 0;
+// 		width: 100px;
+// 		line-height: 1.2;
+
+// 		&:hover {
+// 			text-decoration: none;
+// 			background: $colorsub;
+// 		}
+// 		&:visited {
+// 			color: $colormain;
+// 		}
+// 	}
+// }
+
+.footer__guide {
+	font-size: 0;
+	padding: 0 0 30px;
+
+	&__elm {
+		display: inline-block;
+		vertical-align: top;
+		@include fs(15);
+		width: $width_3col;
+		min-height: 353px;
+		margin: 0 30px 0 0;
+		background: $colorsub;
+		border-radius: 6px;
+		padding: 10px 20px 20px;
+		box-sizing: border-box;
+		@include boxshadow();
+
+		&:nth-child(3n+3) {
+			margin-right: 0
+		}
+
+		p {
+			line-height: 1.6;
+		}
+	}
+	&__head {
+		padding: 2px 0;
+		@include bg_noiz();
+		margin: 0 -25px 12px;
+		width: $width_3col + 10px;
+		box-sizing: border-box;
+	}
+	&__title {
+		@include fs(18);
+		font-weight: bold;
+		text-align: center;
+		border-top: 1px dashed $colorbg;
+		border-bottom: 1px dashed $colorbg;
+		color: #65504e;
+		padding: 12px 10px;
+		box-sizing: border-box;
+
+	}
+}
+.footer__sitelinkarea {
+
+}
+.footer__sitelink {
+	padding: 0 0 30px;
+
+	&__title {
+		@include fs(16);
+		font-weight: bold;
+		padding: 0 0 12px;
+		color: $colorbg;
+		display: inline-block;
+		&::after {
+			content: '';
+			display: inline-block;
+			vertical-align: top;
+			@include bg_noiz($coloraccent);
+			width: auto;
+			height: 4px;
+			display: block;
+			margin: -3px 0 0;
+		}
+	}
+	&__grp {
+		font-size: 0;
+	}
+	&__item {
+		display: inline-block;
+		vertical-align: top;
+		@include fs(12);
+		color: $colorsub;
+		margin: 0 10px 5px 0;
+
+		&::after {
+			content: '';
+			width: 1px;
+			height: 10px;
+			display: inline-block;
+			vertical-align: top;
+			border-right: 1px solid $colorsub;
+			padding: 0 0 0 10px;
+			box-sizing: border-box;
+			transform: translateY(4px);
+
+		}
+		&:last-child {
+			&::after {
+				display: none;
+			}
+		}
+
+		a {
+			color: $colorsub;
+		}
+	}
+}
+
+.footer__copyright {
+	// background: $colormaindark;
+	background: $colorbg;
+	color: $colormain;
+	@include fs(10);
+	text-align: center;
+	padding: 10px 0;
+
+	a {
+		color: $colormain;
+	}
+}
+
+
+/* =======================
+	 title
+	 ======================================================= */
+
+.cmnsmalltitle {
+
+	// h2スタイル打ち消し
+	background: none;
+	width: auto;
+	margin: 0;
+	padding: 0;
+
+	@include fs(16);
+	font-weight: bold;
+	padding: 0 0 10px;
+
+	&::before {
+		content: '';
+		display: inline-block;
+		vertical-align: top;
+		width: 14px;
+		height: 14px;
+		background: $coloraccent_vivid;
+		border-radius: 50%;
+		margin: 0 5px 0 0;
+		box-sizing: border-box;
+		transform: translateY(1px);
+	}
+}
+
+/* =======================
+	 Advice telephone
+	 ======================================================= */
+.advicetel {
+	@include bg_noiz($colorsub);
+	@include boxshadow();
+	padding: 0px 30px 12px;
+	box-sizing: border-box;
+	margin: -87px 0 30px;
+
+	&__head {
+		position: relative;
+		// min-height: 120px;
+		padding: 24px 0 0;
+		font-size: 0;
+
+		&__text {
+			background: #fff;
+			@include fs(15);
+			color: $colormain;
+			text-align: center;
+			width: 290px;
+			// margin: 0 auto;
+			padding: 18px 0 0;
+			line-height: 1.2;
+			display: inline-block;
+			vertical-align: top;
+			height: 80px;
+			box-sizing: border-box;
+			z-index:1;
+			font-weight: bold;
+			// box-shadow: 0px -1px 2px rgba(0,0,0,.1);
+		}
+		&__main {
+			// color: #fff;
+			color: $colormain;
+			padding: 0 0 10px 10px;
+			box-sizing: border-box;
+			position: relative;
+			// text-align: center;
+			display: inline-block;
+			vertical-align: top;
+			width: 576px;
+		}
+
+		&__char {
+			display: inline-block;
+			vertical-align: top;
+			margin: -13px 0 0 10px;
+			// position: absolute;
+			// bottom: 0;
+			// right: 0;
+
+			img {
+				width: 48px;
+				height: auto;
+			}
+		}
+	}
+}
+
+hr.underline {
+	// box-shadow:0px -6px 5px -5px $coloraccent inset,0px 8px 4px -8px $coloraccent;
+	margin: 3px auto;
+	box-shadow:0px -6px 5px -5px #F4B3C7 inset,0px 8px 4px -8px #F4B3C7;
+	width: 80%;
+	border: none;
+	height: 3px;
+}
+.advicetel__head__label {
+	@include fs(14);
+	line-height: 1.2;
+	display: inline-block;
+	vertical-align: top;
+	padding: 13px 7px 0;
+	font-weight: bold;
+
+}
+.advicetel__head__telbox {
+	display: inline-block;
+}
+.advicetel__telicon {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	margin: 0 10px 0;
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+.advicetel__head__tel {
+	@include fs(60);
+	@include mincho();
+	vertical-align: top;
+	line-height: 1;
+	color: $coloraccent_vivid;
+
+}
+.advicetel__head__time {
+	@include fs(14);
+	display: block;
+	// width: 100%;
+	// color: $colormain;
+	font-weight: bold;
+}
+
+.advicetel__btnarea {
+	display: inline-block;
+	vertical-align: top;
+	// margin: 2px 0 0 60px;
+	position: relative;
+	// border-top: 1px dashed $colormain;
+	// border-bottom: 1px dashed $colormain;
+	margin: -8px 0 0;
+	width: 208px;
+}
+
+
+/* ==========================================================================
+   button & link
+   ========================================================================== */
+
+.widebtnarea {
+	display: block;
+	width: 100%;
+	text-align: center;
+	// background: #fff;
+	padding: 5px 0;
+}
+
+.btnarea {
+	font-size: 0;
+	text-align: center;
+
+	&--ornamental {
+		border-top: 1px dashed $colormain;
+		border-bottom: 1px dashed $colormain;
+		padding: 2px 0;
+	}
+
+}
+
+.btnbox {
+	display: inline-block;
+	vertical-align: top;
+	// margin: 0 5px;
+
+	&--double {
+		width: calc(50% - 10px);
+	}
+
+	&--2col {
+		width: 49%;
+		margin-right: 1%;
+
+		&:nth-child(2n+2) {
+			margin-right: 0;
+		}
+	}
+
+	&--3col {
+		width: 33%;
+		margin-right: 0.5%;
+
+		&:nth-child(2n+2) {
+			margin-right: 0;
+		}
+	}
+
+}
+.btn {
+	@include fs(13);
+	display: table;
+	vertical-align: top;
+	background: $coloraccent;
+	color: #fff;
+	border-radius: 8px;
+	border: none;
+	height: 37px;
+	box-sizing: border-box;
+	padding: 0 18px;
+	@include arrowicon(#fff);
+	text-align: center;
+	overflow: hidden;
+
+	&:hover {
+		color: #fff;
+		background: $coloraccent - #111;
+		text-decoration: none;
+	}
+	&:visited {
+		color: #fff;
+	}
+	&--min {
+		width: 105px;
+	}
+
+	&--normal {
+		width: 220px;
+	}
+	&--large {
+		width: 98%;
+		margin: 0 1%;
+		@include fs(18);
+		height: 50px;
+		line-height: 50px;
+	}
+	&--hauto {
+		height: auto;
+	}
+	&--h44 {
+		height: 44px;
+	}
+
+	&--h50 {
+		height: 50px;
+	}
+
+	&--full {
+		width: 100%;
+		@include fs(18);
+		height: 50px;
+		line-height: 50px;
+	}
+	&--fullmin {
+		width: 100%;
+		padding: 0;
+	}
+
+	&--reserve {
+		background: $coloraccentstrong !important;
+		// border-radius: 0 !important;
+		box-shadow: 0 -1px 2px rgba(0,0,0,.2) !important;
+		padding: 10px !important;
+		// line-height: 44px;
+		// height: 44px;
+		box-sizing: border-box;
+		color: #fff;
+
+		&::before {
+			content: url(../img/icon_cart_white.svg);
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+		}
+
+		&::after {
+			display: none;
+		}
+	}
+
+	&--advicetel {
+		// background: $colorgreen !important;
+		// border-radius: 0 !important;
+		// box-shadow: 0 -1px 2px rgba(0,0,0,.2) !important;
+		// padding: 10px !important;
+		// line-height: 44px;
+		height: 44px;
+		box-sizing: border-box;
+		color: #fff;
+
+		&::before {
+			content: url(../../../img/icon_tel_white.svg);
+			display: inline-block;
+			width: 22px;
+			height: 22px;
+			margin: 10px 0 0 10px;
+			transform: translateX(24px);
+		}
+
+		&::after {
+			display: none;
+		}
+		&:visited {
+			color: #fff;
+		}
+	}
+	&--advicetel--mail {
+		&::before {
+			content: url(../../../img/icon_contact.svg);
+			display: inline-block;
+			width: 22px;
+			height: 22px;
+			margin: 13px 0 0 10px;
+			transform: translateX(24px);
+		}
+	}
+	&--search {
+		&::before {
+			content: '';
+			background: url(../img/icon_search_white.svg) no-repeat;
+			display: inline-block;
+			background-size: 25px 25px;
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			top: 12px;
+			left: 47px;
+		}
+	}
+
+	&--searchbycode {
+		height: 38px;
+		line-height: 40px;
+	}
+
+	// jQMから別のラベルが書き出されるため、input type="button"のを非表示にする
+	.ui-btn-hidden {
+		display: none!important;
+	}
+
+}
+.btn__label {
+	height: inherit;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.btn--gray {
+	background: $colorgray;
+	border: 1px solid $colormain;
+	color: $colormain;
+}
+.btn--noarrow {
+	&::after {
+		display: none;
+	}
+}
+.btn--white {
+	background: #fff;
+	border: 1px solid $colormain;
+	color: $colormain;
+	@include arrowicon($colormain);
+}
+.btn--prev {
+	@include arrowiconprev($colormain);
+}
+
+.btn--attention {
+	background: $coloraccentstrong !important;
+	color: #fff;
+	@include arrowicon(#fff);
+}
+
+.btn--arrowbtn {
+	color: $colormain;
+	@include arrowicon_down($colormain);
+}
+.addicon {
+	$size: 18px;
+	width: $size;
+	height: $size;
+	position: relative;
+	border: 1px solid $colormain;
+	border-radius: 50%;
+	display: inline-block;
+	vertical-align: top;
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	transform: translateY(-50%);
+	&::before {
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 11px;
+		border-right: 1px solid $colormain;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateY(-50%) translateX(-50%);
+	}
+	&::after {
+		content: '';
+		display: inline-block;
+		width: 11px;
+		height: 1px;
+		border-top: 1px solid $colormain;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateY(-50%) translateX(-50%);
+	}
+}
+
+.closebtn {
+	display: block;
+	cursor: pointer;
+	background: #fff;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	border: 1px solid #000;
+	color: #fff;
+	position: relative;
+	text-align: center;
+	color: #000;
+	box-sizing: border-box;
+	padding: 27px 0 0;
+	@include fs(9);
+		&::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: 8px;
+		height: 10px;
+		width: 10px;
+		margin: -10px 0 0;
+		border-top: solid 1px #000;
+		border-right: solid 1px #000;
+		transform: rotate(225deg);
+	}
+		&::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 9px;
+		height: 10px;
+		width: 10px;
+		margin: -10px 0 0;
+		border-top: solid 1px #000;
+		border-right: solid 1px #000;
+		transform: rotate(45deg);
+	}
+}
+.textlink {
+	display: inline-block;
+	position: relative;
+	text-indent: 24px;
+	&::before {
+		content: '';
+		display: inline-block;
+		border-right: 1px solid $colormain;
+		border-bottom: 1px solid $colormain;
+		width: 5px;
+		height: 5px;
+		position: absolute;
+		top: 50%;
+		left: 6px;
+		transform: translateY(-50%) rotate(-45deg);
+	}
+	&::after {
+		content: '';
+		display: inline-block;
+		border-right: 1px solid $colormain;
+		border-bottom: 1px solid $colormain;
+		width: 5px;
+		height: 5px;
+		transform: rotate(-45deg);
+		position: absolute;
+		top: 50%;
+		left: 3px;
+		transform: translateY(-50%) rotate(-45deg);
+	}
+}
+
+/* =======================
+	page top Btn
+	======================================================= */
+.btnpagetop {
+	position: fixed !important;
+	// width: 50px;
+	bottom: 20px;
+	right: 20px;
+
+	@include media(sp) {
+		bottom: 0;
+	}
+}
+.btnpagetop__link {
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	padding: 10px;
+	background-color: $colorsubdark;
+	width: 50px;
+	height: 50px;
+	position: relative;
+	box-sizing: border-box;
+	border-radius: 50%;
+	line-height: 1.5;
+
+	&::after {
+		content:"";
+		position:absolute;
+		top:15px;
+		left: 50%;
+		height:12px;
+		width:12px;
+		margin: 2px 0 0 -6px;
+		border-top:solid 2px #fff;
+		border-right:solid 2px #fff;
+		transform:rotate(-45deg);
+		transition:0.2s ease-in-out;
+	}
+
+	&:hover {
+		background: $coloraccent;
+
+		&::after {
+			top: 10px;
+		}
+	}
+
+	&--tosp {
+		@include fs(10);
+		&::after {
+			display: none;
+		}
+		&:hover {
+			text-decoration: none;
+			color: #fff;
+		}
+
+	}
+}
+
+/* ==========================================================================
+   Status
+   ========================================================================== */
+.s-highlight {
+	color: $coloraccentstrong;
+}

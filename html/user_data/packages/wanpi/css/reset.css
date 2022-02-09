@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/* ここからがリセットスタイルシートになります。-------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  border: 0;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline; }
+
+/*フォーカスとは、ブラウザの画面上でマウスをクリックし、入力状態にあるまでの動作を指します*/
+:focus {
+  /* remember to define focus styles! */
+  outline: 0; }
+
+body {
+  /*行の高さをフォントサイズと同じにしています*/
+  line-height: 1; }
+
+ol, ul, li {
+  list-style: none; }
+
+table {
+  /* 隣接するセルのボーダーを結合し、間隔を0に指定しています */
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  /*captionとはテーブル（表）にキャプションをつける。キャプションとは、主に図版や写真について説明のために付け加えられた文字情報のことである。*/
+  font-weight: normal;
+  text-align: left; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  /*blockquote要素、q要素の前後にコンテンツを追加しないように指定しています*/
+  content: ""; }
+
+blockquote, q {
+  /*引用符の表示が出ないようにしています*/
+  quotes: "" ""; }
+
+a img {
+  border: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  /*html5の新しいタグをブロック要素として表示される。*/
+  display: block; }
+
+/* ここまでがリセットスタイルシートになります。-------------------------------------------------------------- */
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+/* IE8, ModanBrowser */
+.clearfix {
+  width: 100%; }
+
+/* clearfix IE 6, 7 */

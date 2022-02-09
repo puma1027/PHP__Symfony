@@ -1,0 +1,139 @@
+@import 'mixin.scss';
+/**************************************************************************※
+	共通のcss
+***************************************************************************/
+/**************************************************************************※
+	pw_containerのcss
+***************************************************************************/
+#pw_container {
+	// width: 960px;
+	width: 100%;
+	margin: 0 auto;
+	@include clearfix();
+	// position: relative;
+}
+/**************************************************************************※pw_headerのcss***************************************************************************/
+#pw_header {
+	position: relative;
+	// width: 960px;
+	// background: url(../img/top/header_bg.png) no-repeat;
+}
+#pw_header h1 {
+	box-sizing: border-box;
+	// width: 950px;
+	// height: 15px;
+	@include fs(10);
+	// font-size: 11px;
+	color: #ffffff;
+	padding: 2px 10px;
+}
+#pw_header h2 {	width: 270px;	float: left;	background: none !important;	padding: 0 !important;	margin: 0 !important;}
+.headright {	width: 690px;	position: absolute;	top: 0;	left: 270px;	margin: 0;	padding: 0;}
+.headright p {	float: left;	font-size: 12px;}
+.headright p span {	color: #d7000f;	font-size: 12px;}
+.headright ul {	clear: both;	float: right;	padding-top: 52px;	padding-right: 4px;	padding-bottom: 0;	padding-left: 0;}
+.headright ul li {	float: left;	padding: 0 0 0 7px;}
+/**************************************************************************※pw_naviのcss***************************************************************************/
+#pw_navi {
+	// clear: both;
+	// width: 964px;
+	// height: 44px;
+	// margin-bottom: 23px;
+}
+#pw_navi ul li {
+	// float: left;
+}
+/**************************************************************************※pw_eyeのcss***************************************************************************/#pw_eye {	position: relative;	width: 960px;	height: 323px;
+background: url(../img/top/eye_bg.png) no-repeat;}
+/**************************************************************************※pw_wrapperのcss***************************************************************************/#pw_wrapper {	clear: both;	width: 960px;}
+/**************************************************************************※pw_sidebarのcss***************************************************************************/.pw_sidebar .pw_sidebar_set01 {	margin: 20px 0 0 0;}
+#pw_in_sidebar01 {	width: 170px;	height: 170px;/*315px; RCHJ Change 2013.05.04*/	background: url(../img/top/sidebar_img01.png) no-repeat;	margin: 0 0 20px 0;}
+#pw_in_sidebar01 .pw_in_sidebar01_text_set {	text-align: center;	height: 40px;}
+/** RCHJ Add 2013.05.04 */#pw_in_sidebar01 p {	color: #584134;	font-size: 11px;}
+#pw_in_sidebar01 .pw_in_sidebar01_text_set a {	color: #584134;	text-decoration: underline;	font-size: 13px;	font-weight: bolder;}
+#pw_in_sidebar01 .pw_in_sidebar01_text_set a:hover {	color: #ffffff;}
+#pw_in_sidebar01 .pw_in_sidebar01_text01 {	padding: 122px 0 0 0;}
+#pw_in_sidebar01 .pw_in_sidebar01_text02 {	padding: 8px 0 0 0;}
+#pw_in_sidebar01 .pw_in_sidebar01_text03 {	font-size: 12px;	line-height: 14px;	padding-top: 62px;	padding-right: 10px;	padding-bottom: 0;	padding-left: 10px;}
+#pw_in_sidebar02 {	width: 170px;	height: 169px;}
+.pw_sidebar .pw_in_sidebar_link01 {	margin-left: 44px;	padding-top: 2px;	padding-right: 0;	padding-bottom: 0;	padding-left: 0;}
+/**************************************************************************※
+	pw_contentのcss
+***************************************************************************/
+
+#pw_content {	width: 770px;	float: right;	margin: 0 0 20px 0;}
+
+/**************************************************************************※
+	footerのcss
+***************************************************************************/
+
+#pw_footer {
+	// clear: both;
+	/*margin-top: 20px;*/
+}
+// #pw_footer #pw_to_top {	width: 960px;	height: 23px;}
+// #pw_footer #pw_in_footer {	width: 960px;	background: #563f32;}
+// #pw_footer #pw_in_footer .left {	width: 614px;	float: left;}
+// #pw_footer #pw_in_footer .right {	width: 346px;	float: left;}
+// #pw_footer #pw_in_footer .right ul {	float: left;	margin: 20px 0 30px 10px;}
+// #pw_footer #pw_in_footer .right ul li a {	color: #ffffff;	font-size: 12px;	font-size: 1.2rem; 	line-height: 22px;}
+// #pw_footer #pw_in_footer .right ul li a:hover {	color: #f5dfdf;}
+
+// #pw_footer #pw_copylight {
+// 	width: 960px;
+// 	height: 26px;
+// 	background: #cb9298;
+// 	clear: both;
+// }
+// #pw_footer #pw_copylight p {	font-size: 10px;	line-height: 26px;	text-align: center;	color: #ffffff;}
+
+// /** ======== 2013.05.05 RCHJ Add ========*/
+// /** ========footer style =====*/.footer_top{	width:960px;	height:112px;}
+// .footer_top_button{	display:table-cell;	padding: 18px 0 0 275px;	}
+// .footer_content{
+// 	position: relative;
+// 	display:inline-block;
+// 	vertical-align: top;
+// 	padding-top: 3px;
+
+// 	display:inline;
+// 	float:left;
+// 	padding-left: 20px;
+// }
+// .footer_content p{	font-size: 12px;
+// }
+// .footer_content_center{	position: relative;
+// 	display:inline-block;
+// 	padding: 3px 15px 0;
+// 	vertical-align: top;
+// 	display:inline;
+// 	float:left;
+// 	padding: 3px 0 0 20px;
+// }
+// .footer_content_center p{	font-size: 12px;}
+// .footer_content_link{
+// 	position: absolute;
+// 	left: 180px;
+// 	top: 5px;
+// 	// top: -34px;
+// 	display: inline-block;
+// 	right: 0;
+// }
+// .footer_content_link a{	color: #FFFFFF;
+// 	font-size:12px;		text-decoration: underline;
+
+// 	&:visited {
+// 		color: #FFFFFF;
+// 	}
+// }
+// #pw_in_footer p{	color: #FFFFFF;	font-size: 1.2rem;	}
+// /** ======== End ========*/#pw_in_footer dt{  /*color: #EB9298;*/  /*color: #E1ABAD;*/  color: #F0F0F0;  /*text-decoration: underline;*/  font-size:90%;  font-weight:bold;}
+// #pw_in_footer li{    color: #FFFFFF;    display: inline;    font-size: 10px;    line-height: 20px;}
+// #pw_in_footer a:link {    color: #FFFFFF;}
+// .footer_category_list dd {  /*border:solid 1px #A89D96;*/}
+// .footer_category_list dd ul li a {  padding:0 3px 0 3px;}
+// .footer_category_list dd ul li a:visited {    color: #EB9298;    text-decoration: none;}
+// .footer_category_list dd ul li a span {  font-size:140%;  font-weight:bold;  /*border:solid 1px #FFFFFF;*/  /*background-color:#C8002E;*/  /*background-color:#F0DCA5;*/}
+// .footer_category_list {  margin:2px;  padding:5px;  /*border:solid 1px #FFFFFF;*/}
+// .footer_content h2 {  font-size:100%;  width:95%;  background-image:none;  background-color:#2F0605;  color:#FFFFFF;  margin-top:10px;  margin-left:5px;  padding: 12px 10px 11px; }
+.pc_logo{display:block; width:85%; margin:5px 0;}

@@ -1,0 +1,77 @@
+<!--{*
+/*
+ * This file is part of EC-CUBE
+ *
+ * Copyright(c) EC-CUBE CO.,LTD. All Rights Reserved.
+ *
+ * http://www.ec-cube.co.jp/
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ */
+*}-->
+
+<!--{if $smarty.session.authority <= $smarty.const.ADMIN_ALLOW_LIMIT}-->
+    <ul class="level1">   
+        <li<!--{if $tpl_subno == 'index'}--> class="on"<!--{/if}--> id="navi-basis-index"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/<!--{$smarty.const.DIR_INDEX_PATH}-->"><span>SHOPマスター</span></a></li>
+        <li<!--{if $tpl_subno == 'tradelaw'}--> class="on"<!--{/if}--> id="navi-basis-tradelaw"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/tradelaw.php"><span>特定商取引法</span></a></li>
+        <li<!--{if $tpl_subno == 'delivery'}--> class="on"<!--{/if}--> id="navi-basis-delivery"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/delivery.php"><span>配送方法設定</span></a></li>
+        <li<!--{if $tpl_subno == 'payment'}--> class="on"<!--{/if}--> id="navi-basis-payment"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/payment.php"><span>支払方法設定</span></a></li>
+        <li<!--{if $tpl_subno == 'point'}--> class="on"<!--{/if}--> id="navi-basis-point"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/point.php"><span>ポイント設定</span></a></li>
+        <!-- {{ ADD BHM_20140307 -->
+
+        <li class="on_level2"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/mail.php"><span>メール設定</span></a>
+            <ul class="level2">
+            <li  class="<!--{if $tpl_subno == 'mail'}-->on<!--{/if}-->" id="navi-basis-mail"> 
+            <a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/mail.php"><span>メール設定</span></a></li>            
+            <li  class="<!--{if $tpl_subno == 'mail1'}-->on<!--{/if}-->" id="navi-basis-mail-return">
+            <a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/mail_return.php"><span>一括メール設定</span></a></li>
+            <li  class="<!--{if $tpl_subno == 'mail2'}-->on<!--{/if}-->" id="navi-basis-sp-template"> 
+            <a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/sp_template.php"><span>スマホメール定型文設定</span></a></li>            
+            </ul>
+        </li>
+
+        <!-- ADD BHM_20140307 }} -->
+        <li<!--{if $tpl_subno == 'kiyaku'}--> class="on"<!--{/if}--> id="navi-basis-kiyaku"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/kiyaku.php"><span>会員規約設定</span></a></li>
+        <li<!--{if $tpl_subno == 'zip_install'}--> class="on"<!--{/if}--> id="navi-basis-zip"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/zip_install.php"><span>郵便番号DB登録</span></a></li>
+        <li<!--{if $tpl_subno == 'control'}--> class="on"<!--{/if}--> id="navi-basis-control"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/control.php"><span>サイト管理設定</span></a></li>
+
+        <li class="on_level2"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/holiday.php"><span>定休日管理</span></a>
+            <ul class="level2">
+                <li  class="<!--{if $tpl_subno == 'holiday'}-->on<!--{/if}-->" id="navi-basis-holiday"> 
+                <a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/holiday.php"><span>定休日管理</span></a></li>            
+                <li  class="<!--{if $tpl_subno == 'restday'}-->on<!--{/if}-->" id="navi-basis-restday">
+                <a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/restday.php"><span>休業日登録</span></a></li>
+                <li  class="<!--{if $tpl_subno == 'normalday'}-->on<!--{/if}-->" id="navi-basis-normalday"> 
+                <a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/normalday.php"><span>平日登録</span></a></li>            
+            </ul>
+        </li>
+        <li<!--{if $tpl_subno == 'tax'}--> class="on"<!--{/if}--> id="navi-basis-tax"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/tax.php"><span>税率設定</span></a></li>
+        <li<!--{if $tpl_subno == 'deliv_date'}--> class="on"<!--{/if}--> id="navi-basis-deliv_date"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/deliv_date.php"><span>お届け日管理</span></a></li>
+    </ul>
+
+<!--{elseif $smarty.session.authority <= $smarty.const.ITOKAWA_ALLOW_LIMIT}-->
+    <ul class="level1">
+      <li class="on_level2"><a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/mail.php"><span>メール設定</span></a>
+        <ul class="level2">
+          <li  class="<!--{if $tpl_subno == 'mail'}-->on<!--{/if}-->" id="navi-basis-mail"> 
+            <a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/mail.php"><span>メール設定</span></a></li>
+          <li  class="<!--{if $tpl_subno == 'mail1'}-->on<!--{/if}-->" id="navi-basis-mail-return">
+            <a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/mail_return.php"><span>一括メール設定</span></a></li>
+          <li  class="<!--{if $tpl_subno == 'mail2'}-->on<!--{/if}-->" id="navi-basis-sp-template"> 
+            <a href="<!--{$smarty.const.ROOT_URLPATH}--><!--{$smarty.const.ADMIN_DIR}-->basis/sp_template.php"><span>スマホメール定型文設定</span></a></li>            
+        </ul>
+      </li>
+    </ul>
+<!--{/if}-->

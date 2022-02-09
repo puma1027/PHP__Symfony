@@ -1,0 +1,79 @@
+/* ===== scss settings =============================================
+   For Wanpi no Mahou
+   ==================================================================== */
+/* ===== mixin =============================================
+   ==================================================================== */
+#calendar_area #tabs20130315 {
+  width: 100%; }
+
+#calendar_area #tabs20130315 ul {
+  height: 25px;
+  float: left; }
+
+#calendar_area #tabs20130315 li {
+  float: left;
+  width: 55px;
+  /*64px;*/
+  height: 25px;
+  margin: 0 2px 0 0; }
+
+#calendar_area #tabs20130315 li a {
+  width: 64px;
+  height: 25px;
+  display: block;
+  font-size: 15px;
+  font-weight: normal;
+  color: #000000;
+  margin: 5px 20px; }
+
+#calendar_area #tabs20130315 #tab0120130315 {
+  /*background: url(../../img/201303/list/tab01_off.png) no-repeat;*/
+  background: none; }
+
+#calendar_area #tabs20130315 #tab0120130315.active {
+  /*background: url(../../img/201303/list/tab01_on.png) no-repeat;*/
+  background: none; }
+
+#tab0120130315.active a {
+  /*color: #FFFFFF!important;*/
+  font-size: 17px !important;
+  font-weight: bolder !important; }
+
+#calendar_area #tabs20130315 #tab0220130315 {
+  /*background: url(../../img/201303/list/tab02_off.png) no-repeat;*/
+  background: none; }
+
+#calendar_area #tabs20130315 #tab0220130315.active {
+  /*background: url(../../img/201303/list/tab02_on.png) no-repeat;*/
+  background: none; }
+
+#tab0220130315.active a {
+  /*color: #FFFFFF!important;*/
+  font-size: 17px !important;
+  font-weight: bolder !important; }
+
+#calendar_area #tabs20130315 #tab0320130315 {
+  /*background: url(../../img/201303/list/tab03_off.png) no-repeat;*/
+  background: none; }
+
+#calendar_area #tabs20130315 #tab0320130315.active {
+  /*background: url(../../img/201303/list/tab03_on.png) no-repeat;*/
+  background: none; }
+
+#tab0320130315.active a {
+  /*color: #FFFFFF!important;*/
+  font-size: 17px !important;
+  font-weight: bolder !important; }
+
+#calendar_area #tabs20130315 .tab_box20130315 {
+  clear: both;
+  width: 98.5%;
+  min-height: 234px;
+  padding-bottom: 20px;
+  background: #ffffff; }
+
+#calendar_area #tabs20130315 .tab_box20130315 .block0120130315 {
+  background: #ffffff;
+  clear: both;
+  width: 274px;
+  height: 402px; }

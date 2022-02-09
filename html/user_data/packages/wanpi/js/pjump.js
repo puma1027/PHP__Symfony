@@ -1,0 +1,1 @@
+setTimeout("location.href='https://onepiece-rental.net/'",0); 

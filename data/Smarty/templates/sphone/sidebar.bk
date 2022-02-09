@@ -1,0 +1,868 @@
+<div class="left">
+
+    <div class="bnr">
+        <!--<!--{include file="`$smarty.const.SMARTPHONE_TEMPLATE_REALDIR`frontparts/bloc/rentalspan.tpl"}-->-->
+        <!-- ishibashi navibar用のrentalspantemplateファイルの読み込み -->
+        <!--{include_php file="`$smarty.const.HTML_REALDIR`/frontparts/bloc/rentalspan_navibar.php"}-->
+    </div>
+
+    <!--{if $smarty.server.PHP_SELF == '/index.php'}-->
+    <!--{/if}-->
+
+    <div class="bnr">
+        <img src="<!--{$TPL_URLPATH}-->img/sidebar_bnr1.png">
+    </div>
+<!--{*
+        <div class="bnr">
+            <img src="<!--{$TPL_URLPATH}-->img/sidebar_bnr2.jpg">
+        </div>
+*}-->
+
+    <!--▼検索バー -->
+    <div id="search_area">
+        <form method="get" action="<!--{$smarty.const.ROOT_URLPATH}-->products/list.php">
+            <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+            <input type="hidden" name="mode" value="category_search">
+            <input type="hidden" name="category_id" value="0" >
+            <input id="kind_dress3" name="kind3" type="hidden" value="232"><!--//::N00083 Add 20131201-->
+            <!--<input id="kind_dress4" name="kind4" type="hidden" value="148">-->
+            <!--<input id="kind_dress3" name="kind3" type="hidden" value="90">-->
+            <input id="kind_dress" name="kind2" type="hidden" value="44">
+            <input id="kind_all" name="kind_all" type="hidden" value="all">
+
+            <!--{assign var="keyword_name" value=$smarty.get.name}-->
+            <input type="search" name="name" id="search" value="<!--{$keyword_name|escape}-->" placeholder="商品コードから探す" class="searchbox" />
+        </form>
+    </div>
+    <!--商品一覧検索 ここから-->
+    <div class="side_calender">
+    <!--{if $smarty.get.category_id == $smarty.const.CATEGORY_DRESS_ALL || $smarty.get.category_id == $smarty.const.CATEGORY_DRESS || $smarty.get.category_id == $smarty.const.CATEGORY_DRESS3 || $smarty.get.category_id == $smarty.const.CATEGORY_DRESS4 || $smarty.get.category_id == $smarty.const.CATEGORY_SET_DRESS}--> <!--//::N00083 Add 20131201-->
+        <form method="get" name="form_dress_navi" action="<!--{$smarty.const.URL_DIR}-->products/list.php"><!-- ishibashi smart_searchとnameが被り、jsが反応しないため、pcnaviを変更 -->
+        <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+        <!--{if $smarty.get.category_id == 0}-->
+        <input type="hidden" name="category_id" value="<!--{$smarty.const.CATEGORY_DRESS_ALL}-->">
+        <!--{else}-->
+        <input type="hidden" name="category_id" value="<!--{$smarty.get.category_id|default:$smarty.const.CATEGORY_DRESS_ALL}-->">
+        <!--{/if}-->
+        <input type="hidden" name="mode" value="category_search">
+        <input type="hidden" id="rental_date" name="rental_date" value="<!--{$smarty.get.rental_date}-->">
+        <!--▼レンタル日程▼-->
+        <div class="box0220130315">
+            <div class="title">
+                日程選択
+            </div>
+            <div class="">
+                <div id="tabs_side">
+                    <ul>
+                        <li id="tab0120130315"><a href="#tab-side-120130315"><!--{$tpl_current_month}-->月</a></li>
+                        <li id="tab0220130315"><a href="#tab-side-220130315"><!--{$tpl_next_month}-->月</a></li>
+                        <li id="tab0320130315"><a href="#tab-side-320130315"><!--{$tpl_next_next_month}-->月</a></li>
+                    </ul>
+                    <div id="tab-side-120130315" class="tab_box20130315">
+                        <table border="0" cellspacing="0" cellpadding="0" class="table0120130315">
+                            <tr>
+                                <td>
+                                    <img src="<!--{$TPL_DIR}-->img/pw_list11.gif" width="16" height="15" />予約可能&nbsp;&nbsp;|&nbsp;&nbsp;
+                                    <img src="<!--{$TPL_DIR}-->img/pw_list12.gif" width="16" height="15" />予約不可
+                                </td>
+                            </tr>
+                        </table>
+                        <div id="my_datepicker_side_m0" style=""></div>
+                        <!--<img src="<!--{$TPL_DIR}-->img/201303/list/pw_list13.gif" width="" height="12" />-->
+                        <img src="/user_data/packages/wanpi/img/201303/list/pw_list13.gif" width="" height="12" />
+                        <span id="calendar_lbl_side_tab01"></span>
+                        <div id="calendar_lbl_side" class="calendar_lbl_side">
+                            <table width="" border="0" cellspacing="0" cellpadding="0" class="table0420130315">
+                                <tr>
+                                    <td class="">お届け</td>
+                                </tr>
+                                <tr>
+                                    <td class=""><input type='text' name='side_otodoke_lbl' id='side_otodoke_lbl' class="short20130315" readonly="readonly" value='<!--{$smarty.get.side_otodoke_lbl}-->'></td>
+                                </tr>
+                                <tr>
+                                    <td class="">ご利用</td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        <input type='checkbox' name='chk_use1' id='chk_use1' value='1' <!--{if $smarty.get.chk_use1 == "1"}-->checked='checked'<!--{/if}--> <!--{if $smarty.get.txt_use2 eq ''}-->style='display:none'<!--{/if}--> >
+                                        <input type='text' name='side_txt_use1' id='side_txt_use1' class="rental_date_txt long20130315" value='<!--{$smarty.get.side_txt_use1}-->' <!--{if $smarty.get.side_txt_use1 eq ''}-->style='display:none'<!--{/if}--> readonly="readonly">
+                                        <input type='hidden' name='hdn_send_day1' id='hdn_send_day1' value='<!--{$smarty.get.hdn_send_day1}-->'>
+                                        <input type='hidden' name='hdn_day_mode1' id='hdn_day_mode1' value='<!--{$smarty.get.hdn_day_mode1}-->'>
+                                        <span id="rental_date_span" <!--{if $smarty.get.txt_use1 eq ''}-->style='display:none'<!--{/if}-->></span> <br>
+                                        <input type='checkbox' name='chk_use2' id='chk_use2' value='1' <!--{if $smarty.get.chk_use2 == "1"}-->checked='checked'<!--{/if}--> <!--{if $smarty.get.txt_use2 eq ''}-->style='display:none'<!--{/if}-->>
+                                        <input type='text' name='side_txt_use2' id='side_txt_use2' class="rental_date_txt long20130315" value='<!--{$smarty.get.side_txt_use2}-->' <!--{if $smarty.get.side_txt_use2 eq ''}-->style='display:none'<!--{/if}--> readonly="readonly">
+                                        <input type='hidden' name='hdn_send_day2' id='hdn_send_day2' value='<!--{$smarty.get.hdn_send_day2}-->'>
+                                        <input type='hidden' name='hdn_day_mode2' id='hdn_day_mode2' value='<!--{$smarty.get.hdn_day_mode2}-->'>
+                                        <span id="rental_date_span2" <!--{if $smarty.get.txt_use2 eq ''}-->style='display:none'<!--{/if}-->></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">ご返却</td>
+                                </tr>
+                                <tr>
+                                    <td class=""><input type='text' name='henkyaku_side_lbl' id='henkyaku_side_lbl' class="long20130315" readonly="readonly" value='<!--{$smarty.get.henkyaku_side_lbl}-->'></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- 日程未選択選択表示 -->
+                        <div id="calendar_lbl_side_non" class="calendar_lbl_side_non">ご利用日を選ぶと、<br/>その日に空きのあるドレスを検索できます。</div>
+                    </div>
+                    <div id="tab-side-220130315" class="tab_box20130315">
+                        <table width="" border="0" cellspacing="0" cellpadding="0" class="table0120130315">
+                            <tr>
+                                <td><img src="<!--{$TPL_DIR}-->img/pw_list11.gif" width="16" height="15" />予約可能&nbsp;&nbsp;|&nbsp;&nbsp;
+                                <img src="<!--{$TPL_DIR}-->img/pw_list12.gif" width="16" height="15" />予約不可</td>
+                            </tr>
+                        </table>
+                        <div id="my_datepicker_side_m1" style=""></div>
+                        <img src="<!--{$TPL_DIR}-->img/pw_list13.gif" width="" height="12" />
+                        <span id="calendar_lbl_side_tab02"></span>
+                    </div>
+                    <div id="tab-side-320130315" class="tab_box20130315">
+                        <table width="" border="0" cellspacing="0" cellpadding="0" class="table0120130315">
+                            <tr>
+                                <td><img src="<!--{$TPL_DIR}-->img/pw_list11.gif" width="16" height="15" />予約可能&nbsp;&nbsp;|&nbsp;&nbsp;
+                                <img src="<!--{$TPL_DIR}-->img/pw_list12.gif" width="16" height="15" />予約不可</td>
+                            </tr>
+                        </table>
+                        <div id="my_datepicker_side_m2" style=""></div>
+                        <img src="<!--{$TPL_DIR}-->img/pw_list13.gif" width="" height="12" />
+                        <span id="calendar_lbl_side_tab03"></span>
+                    </div>
+                </div>
+                <!-- //#tab -->
+            </div>
+        </div>
+        <!--▲レンタル日程▲-->
+
+
+        <!-- ドレス -->
+        <div class="title" style="margin-top: 10px;">絞り込み</div><!-- 20201223 add ishibashi -->
+        <div id="dress20130315" class="detail_search">
+            <table>
+                <!--▼サイズ▼-->
+                <tr class="">
+                    <td class="search_title">
+                        <h3>
+                            サイズ
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <div class="check_wrap size">
+                            <div><input id="w_size_ss" name="size[]" type="checkbox" value="1"  <!--{if "1"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label  for="w_size_ss">SS</label></div>
+                            <div><input id="w_size_s" name="size[]"  type="checkbox" value="2"  <!--{if "2"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label  for="w_size_s">S</label></div>
+                            <div><input id="w_size_m" name="size[]"  type="checkbox" value="3"  <!--{if "3"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label  for="w_size_m">M</label></div>
+                            <div><input id="w_size_l" name="size[]"  type="checkbox" value="4"  <!--{if "4"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label  for="w_size_l">L</label></div>
+                            <div><input id="w_size_ll" name="size[]"  type="checkbox" value="5"  <!--{if "5"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label  for="w_size_ll">LL</label></div>
+                            <div><input id="w_size_3l"  name="size[]" type="checkbox" value="6"  <!--{if "6"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label  for="w_size_3l">3L</label></div>
+                            <div><input id="w_size_4l"  name="size[]" type="checkbox" value="7"  <!--{if "7"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label  for="w_size_4l">4L</label><!--//::N00140 Add 20140410--></div>
+                            <div><input id="d_maternity"  name="size[]" type="checkbox" value="8"  <!--{if "8"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label  for="d_maternity">マタニティ</label></div>
+                        </div
+                    </td>
+                </tr>
+                <!--▲サイズ▲-->
+                <!--▼丈▼-->
+                <tr class="tr0220130315">
+                    <td class="search_title">
+                        <h3>
+                            丈
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="">
+                        身長 <select name="len_knee_sel" id="len_knee_sel" class="len_knee_sel">
+                            <option label="150cm" <!--{if $smarty.get.len_knee_sel == "150"}-->selected<!--{/if}--> value="150">150cm</option>
+                            <option label="155cm" <!--{if $smarty.get.len_knee_sel == "155"}-->selected<!--{/if}--> value="155">155cm</option>
+                            <option label="160cm" <!--{if $smarty.get.len_knee_sel == "160"}-->selected<!--{/if}--> value="160">160cm</option>
+                            <option label="165cm" <!--{if $smarty.get.len_knee_sel == "165"}-->selected<!--{/if}--> value="165">165cm</option>
+                            <option label="170cm" <!--{if $smarty.get.len_knee_sel == "170"}-->selected<!--{/if}--> value="170">170cm</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <div class="check_wrap">
+                            <div><input id="w_len_hizaue" name="len_chk[]" type="checkbox" value="1" <!--{if "1"|in_array:$smarty.get.len_chk}-->checked<!--{/if}-->/><label for="w_len_hizaue">ひざ上</label></div>
+                            <div><input id="w_len_hizatake" name="len_chk[]" type="checkbox" value="2" <!--{if "2"|in_array:$smarty.get.len_chk}-->checked<!--{/if}-->/><label for="w_len_hizatake">ひざ丈</label></div>
+                            <div><input id="w_len_hizasita" name="len_chk[]" type="checkbox" value="3" <!--{if "3"|in_array:$smarty.get.len_chk}-->checked<!--{/if}-->/><label for="w_len_hizasita">ひざ下</label></div>
+                        </div>
+                    </td>
+                </tr>
+                <!--▲丈▲-->
+
+                <!--▼色▼-->
+                <tr class="tr0320130315">
+                    <td class="search_title">
+                        <h3>
+                            色
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <div class="check_wrap color">
+                            <div><input id="d_color_bk" name="color[]" type="checkbox" value="100" <!--{if "100"|in_array:$smarty.get.color}-->checked<!--{/if}-->/><label for="d_color_bk"><img src="<!--{$TPL_DIR}-->img/pw_list03.png" alt="黒・ネイビー" />黒・ネイビー</label></div>
+                            <div><input id="d_color_pp" name="color[]" type="checkbox" value="110" <!--{if "110"|in_array:$smarty.get.color}-->checked<!--{/if}-->/><label for="d_color_pp"><img src="<!--{$TPL_DIR}-->img/pw_list04.png" alt="グレー・パープル" />グレー・パープル</label></div>
+                            <div><input id="d_color_bl" name="color[]" type="checkbox" value="120" <!--{if "120"|in_array:$smarty.get.color}-->checked<!--{/if}-->/><label for="d_color_bl"><img src="<!--{$TPL_DIR}-->img/pw_list05.png" alt="ブルー・グリーン" />ブルー・グリーン</label></div>
+                            <div><input id="d_color_rd" name="color[]" type="checkbox" value="130" <!--{if "130"|in_array:$smarty.get.color}-->checked<!--{/if}-->/><label for="d_color_rd"><img src="<!--{$TPL_DIR}-->img/pw_list06.png" alt="赤・ピンク" />赤・ピンク</label></div>
+                            <div><input id="d_color_be" name="color[]" type="checkbox" value="140" <!--{if "140"|in_array:$smarty.get.color}-->checked<!--{/if}-->/><label for="d_color_be"><img src="<!--{$TPL_DIR}-->img/pw_list07.png" alt="ベージュ・ブラウン" />ベージュ・ブラウン</label></div>
+                            <div><input id="d_color_wh" name="color[]" type="checkbox" value="150" <!--{if "150"|in_array:$smarty.get.color}-->checked<!--{/if}-->/><label for="d_color_wh"><img src="<!--{$TPL_DIR}-->img/pw_list08.png" alt="白・その他" />白・その他</label></div>
+                        </div>
+                    </td>
+                </tr>
+                <!--▲色▲-->
+                <!--▼アイテム▼-->
+                <tr class="tr0420130315">
+                    <td class="search_title">
+                        <h3>
+                            アイテム
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <div class="check_wrap color">
+                            <div><input id="kind_dress" class="input0120130315" name="kind2" type="checkbox" value="<!--{$smarty.const.CATEGORY_DRESS}-->" <!--{if $smarty.get.kind2 == $smarty.const.CATEGORY_DRESS}-->checked<!--{/if}-->/>
+                                <label for="kind_dress">
+                                    ドレス<br>
+                                    <span class="">5,980円</span>
+                                </label>
+                            </div>
+                            <div><input id="kind_dress3" class="input0320130315" name="kind3" type="checkbox" value="<!--{$smarty.const.CATEGORY_SET_DRESS}-->" <!--{if $smarty.get.kind3 == $smarty.const.CATEGORY_SET_DRESS}-->checked<!--{/if}-->/>
+                                <label for="kind_dress3">
+                                    コーディネートセット<br>
+                                    <span class="">8,980円 or 12,980円</span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <!--▲アイテム▲-->
+
+                <!-- 絞り込みの検索に年代と体型を追加 add 20210115 ishibashi -->
+                <tr class="tr0420130315">
+                    <td class="search_title">
+                        <h3>
+                            年代
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <div id="ageSelect" class="check_wrap">
+                            <div>
+                                <input id="cb_age_10" name="age[]" type="checkbox" value="cb_age_10" <!--{if "cb_age_10"|in_array:$smarty.get.age}-->checked<!--{/if}-->>
+                                <label for="cb_age_10">10代</label>
+                            </div>
+                            <div>
+                                <input id="cb_age_20fh" name="age[]" type="checkbox" value="cb_age_20fh"  <!--{if "cb_age_20fh"|in_array:$smarty.get.age}-->checked<!--{/if}-->>
+                                <label for="cb_age_20fh">20代前半</label>
+                            </div>
+                            <div>
+                                <input id="cb_age_20sh" name="age[]" type="checkbox" value="cb_age_20sh" <!--{if "cb_age_20sh"|in_array:$smarty.get.age}-->checked<!--{/if}-->>
+                                <label for="cb_age_20sh">20代後半</label>
+                            </div>
+                            <div>
+                                <input id="cb_age_30fh" name="age[]" type="checkbox" value="cb_age_30fh" <!--{if "cb_age_30fh"|in_array:$smarty.get.age}-->checked<!--{/if}-->>
+                                <label for="cb_age_30fh">30代前半</label>
+                            </div>
+                            <div>
+                                <input id="cb_age_30sh" name="age[]" type="checkbox" value="cb_age_30sh"<!--{if "cb_age_30sh"|in_array:$smarty.get.age}-->checked<!--{/if}--> >
+                                <label for="cb_age_30sh">30代後半</label>
+                            </div>
+                            <div>
+                                <input id="cb_age_40fh" name="age[]" type="checkbox" value="cb_age_40fh" <!--{if "cb_age_40fh"|in_array:$smarty.get.age}-->checked<!--{/if}-->>
+                                <label for="cb_age_40fh">40代前半</label>
+                            </div>
+                            <div>
+                                <input id="cb_age_40sh" name="age[]" type="checkbox" value="cb_age_40sh"<!--{if "cb_age_40sh"|in_array:$smarty.get.age}-->checked<!--{/if}--> >
+                                <label for="cb_age_40sh">40代後半</label>
+                            </div>
+                            <div>
+                                <input id="cb_age_50over" name="age[]" type="checkbox" value="cb_age_50over" <!--{if "cb_age_50over"|in_array:$smarty.get.age}-->checked<!--{/if}-->>
+                                <label for="cb_age_50over">50代～</label>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr0420130315">
+                    <td class="search_title">
+                        <h3>
+                            体型カバー
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <div id="coverSelect" class="check_wrap">
+                            <div>
+							  <input id="cb_complex1" name="complex[]" type="checkbox" value="cb_complex1" <!--{if "cb_complex1"|in_array:$smarty.get.complex}-->checked<!--{/if}-->>
+							  <label for="cb_complex1">ぽっこりお腹カバー</label>
+							</div>
+							<div>
+							  <input id="cb_complex2" name="complex[]" type="checkbox" value="cb_complex2" <!--{if "cb_complex2"|in_array:$smarty.get.complex}-->checked<!--{/if}-->>
+							  <label for="cb_complex2">ぽっちゃり二の腕カバー</label>
+							</div>
+							<div>
+							  <input id="cb_complex3" name="complex[]" type="checkbox" value="cb_complex3" <!--{if "cb_complex3"|in_array:$smarty.get.complex}-->checked<!--{/if}-->>
+							  <label for="cb_complex3">大きめバストすっきり</label>
+							</div>
+							<div>
+							  <input id="cb_complex4" name="complex[]" type="checkbox" value="cb_complex4" <!--{if "cb_complex4"|in_array:$smarty.get.complex}-->checked<!--{/if}-->>
+							  <label for="cb_complex4">ひかえめバストふっくら</label>
+							</div>
+                        </div>
+					</td>
+                </tr>
+                <!-- 絞り込みの検索に年代と体型を追加 end 20210115 ishibashi -->
+            </table>
+        </div>
+
+        <div class="submit_area">
+            <button type="submit" class="ui-btn">検索</button>
+        </div>
+
+        <!--{elseif $smarty.get.category_id == $smarty.const.CATEGORY_NECKLACE}-->
+        <!--【★ネックレス・ここから】-->
+        <form method="get" name="form_necklace" action="<!--{$smarty.const.URL_DIR}-->products/list.php">
+        <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+		<input type="hidden" name="category_id" value="<!--{$smarty.get.category_id }-->">
+		<input type="hidden" name="mode" value="category_search">
+		<input type="hidden" id="rental_date" name="rental_date" value="<!--{$smarty.get.rental_date}-->">
+        <div id="dress20130315" class="detail_search">
+            <table>
+                <!--ネックレス・長さ-->
+                <tr class="">
+                    <td class="search_title"><h3>長さ</h3></td>
+                </tr>
+                <tr class="">
+                    <td class="">
+                        <input id="n_len_short" name="len[]" type="checkbox" value="000_290" <!--{if $smarty.get.len[0] == "290"}-->checked<!--{/if}-->/><label for="n_len_short">ショート丈</label>
+                        <input id="n_len_medium" name="len[]" type="checkbox" value="001_291" <!--{if $smarty.get.len[1] == "291"}-->checked<!--{/if}-->/><label for="n_len_medium">ミディアム丈</label>
+                        <input id="n_len_long" name="len[]" type="checkbox" value="002_141" <!--{if $smarty.get.len[2] == "141"}-->checked<!--{/if}-->/><label for="n_len_long">ロング丈</label>
+                    </td>
+                </tr>
+                <!--ネックレス・長さ-->
+                <!--ネックレス・シーン-->
+                <tr class="">
+                    <td class="search_title"><h3>シーン</h3></td>
+                </tr>
+                <tr class="">
+                    <td class="">
+                        <input id="n_scene_formal" name="n_scene[]" type="checkbox" value="000_292" <!--{if $smarty.get.n_scene[0] == "292"}-->checked<!--{/if}-->/><label for="n_scene_formal">フォーマル</label>
+                        <input id="n_scene_casual" name="n_scene[]" type="checkbox" value="001_293" <!--{if $smarty.get.n_scene[1] == "293"}-->checked<!--{/if}-->/><label for="n_scene_casual">カジュアル</label>
+                    </td>
+                </tr>
+                <!--ネックレス・シーン-->
+                <!--ネックレス・年代-->
+                <tr class="">
+                    <td class="search_title"><h3>年代</h3></td>
+                </tr>
+                <tr class="">
+                    <td class="">
+                        <div class="check_wrap">
+                            <div><input id="n_age_10" name="n_age[]" type="checkbox" value="000_294" <!--{if $smarty.get.n_age[0] == "294"}-->checked<!--{/if}-->/><label for="n_age_10">10代</label></div>
+                            <div><input id="n_age_20" name="n_age[]" type="checkbox" value="001_295" <!--{if $smarty.get.n_age[1] == "295"}-->checked<!--{/if}-->/><label for="n_age_20">20代</label></div>
+                            <div><input id="n_age_30" name="n_age[]" type="checkbox" value="002_296" <!--{if $smarty.get.n_age[2] == "296"}-->checked<!--{/if}-->/><label for="n_age_30">30代</label></div>
+                            <div><input id="n_age_40" name="n_age[]" type="checkbox" value="003_297" <!--{if $smarty.get.n_age[3] == "297"}-->checked<!--{/if}-->/><label for="n_age_40">40代</label></div>
+                            <div><input id="n_age_50" name="n_age[]" type="checkbox" value="004_298" <!--{if $smarty.get.n_age[4] == "298"}-->checked<!--{/if}-->/><label for="n_age_50">50代～</label></div>
+                        </div>
+                    </td>
+                </tr>
+                <!--ネックレス・年代-->
+                <!--//::N00183 end 20140616-->
+                <!--▼ネックレス・色▼-->
+                <tr class="">
+                    <td class="search_title"><h3>色</h3></td>
+                </tr>
+                <tr class="">
+                    <td class="">
+                        <div class="check_wrap color">
+                            <div class="color02"><input id="n_color_sl" name="color[]" type="checkbox" value="003_137" <!--{if $smarty.get.color[3] == "137"}-->checked<!--{/if}-->/><label for="n_color_sl"><img src="<!--{$TPL_DIR}-->img/pw_list32.png" width="21" height="21" alt="シルバー" />シルバー</label></div>
+                            <div class="color01"><input id="n_color_gd" name="color[]" type="checkbox" value="002_138" <!--{if $smarty.get.color[2] == "138"}-->checked<!--{/if}-->/><label for="n_color_gd"><img src="<!--{$TPL_DIR}-->img/pw_list31.png" width="21" height="21" alt="ゴールド" />ゴールド</label></div>
+                            <div class="color01"><input id="n_color_pl" name="color[]" type="checkbox" value="000_140" <!--{if $smarty.get.color[0] == "140"}-->checked<!--{/if}-->/><label for="n_color_pl"><img src="<!--{$TPL_DIR}-->img/pw_list29.png" width="21" height="21" alt="パール" />パール</label></div>
+                            <div class="color01"><input id="n_color_pk" name="color[]" type="checkbox" value="001_139" <!--{if $smarty.get.color[1] == "139"}-->checked<!--{/if}-->/><label for="n_color_pk"><img src="<!--{$TPL_DIR}-->img/pw_list30.png" width="21" height="21" alt="ピンク" />ピンク</label></div>
+                            <div class="color02"><input id="n_color_bk" name="color[]" type="checkbox" value="004_136" <!--{if $smarty.get.color[4] == "136"}-->checked<!--{/if}-->/><label for="n_color_bk"><img src="<!--{$TPL_DIR}-->img/pw_list33.png" width="21" height="21" alt="黒" />黒</label></div>
+                            <div class="color02"><input id="n_color_ot" name="color[]" type="checkbox" value="005_135" <!--{if $smarty.get.color[5] == "135"}-->checked<!--{/if}-->/><label for="n_color_ot"><img src="<!--{$TPL_DIR}-->img/pw_list08.png" width="20" height="19" alt="その他" />その他</label></div>
+                        </div>
+
+                    </td>
+                </tr>
+                <!--▲アイテム▲-->
+            </table>
+        </div>
+        <div class="submit_area">
+            <button type="submit" class="ui-btn">検索</button>
+        </div>
+        <!--{elseif $smarty.get.category_id == $smarty.const.CATEGORY_ONEPIECE}-->
+        <!--【★ワンピース・ここから】-->
+        <form method="get" name="onepiceform_dress" action="<!--{$smarty.const.URL_DIR}-->products/list.php">
+            <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+            <input type="hidden" name="category_id" value="<!--{$smarty.get.category_id}-->">
+            <input type="hidden" name="mode" value="category_search">
+            <input type="hidden" id="rental_date" name="rental_date" value="<!--{$smarty.get.rental_date}-->">
+            <div class="">
+                <div class="title">
+                    日程選択
+                </div>
+                <div class="leaf0220130315">
+                    <div id="tabs_side">
+                        <ul>
+                            <li id="tab0120130315"><a href="#tab-side-120130315"><!--{$tpl_current_month}-->月</a></li>
+                            <li id="tab0220130315"><a href="#tab-side-220130315"><!--{$tpl_next_month}-->月</a></li>
+                            <li id="tab0320130315"><a href="#tab-side-320130315"><!--{$tpl_next_next_month}-->月</a></li>
+                        </ul>
+                        <div id="tab-side-120130315" class="tab_box20130315">
+                            <table width="" border="0" cellspacing="0" cellpadding="0"
+                                class="table0120130315">
+                                <tr>
+                                    <td><img
+                                        src="<!--{$TPL_DIR}-->img/pw_list11.gif"
+                                        width="16" height="15" />予約可能&nbsp;&nbsp;|&nbsp;&nbsp;<img
+                                        src="<!--{$TPL_DIR}-->img/pw_list12.gif"
+                                        width="16" height="15" />予約不可</td>
+                                </tr>
+                            </table>
+                            <div id="my_datepicker_side_m0" style=""></div>
+                            <img src="<!--{$TPL_DIR}-->img/pw_list13.gif" width="" height="12" /> <span id="calendar_lbl_side_tab01"></span>
+                            <div id="calendar_lbl_side" class="calendar_lbl_side">
+                                <table width="" border="0" cellspacing="0" cellpadding="0"
+                                    class="table0420130315">
+                                    <tr>
+                                        <td class="">お届け</td>
+                                        <td class=""><input type='text'
+                                            name='otodoke_lbl' id='otodoke_lbl' class="short20130315"
+                                            readonly="readonly"
+                                            value='<!--{$smarty.get.otodoke_lbl}-->'></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="">ご利用</td>
+                                        <td class=""><input type='checkbox'
+                                            name='chk_use1' id='chk_use1' value='1'
+                                        <!--{if $smarty.get.chk_use1 == "1"}-->checked='checked'<!--{/if}-->
+                                            <!--{if $smarty.get.side_txt_use2 eq ''}-->style='display:none'<!--{/if}-->>
+                                            <input type='text' name='side_txt_use1' id='side_txt_use1'
+                                            class="rental_date_txt long20130315"
+                                            value='<!--{$smarty.get.side_txt_use1}-->'
+                                        <!--{if $smarty.get.side_txt_use1 eq ''}-->style='display:none'<!--{/if}-->
+                                            readonly="readonly"> <input type='hidden'
+                                            name='hdn_send_day1' id='hdn_send_day1'
+                                            value='<!--{$smarty.get.hdn_send_day1}-->'> <input
+                                            type='hidden' name='hdn_day_mode1' id='hdn_day_mode1'
+                                            value='<!--{$smarty.get.hdn_day_mode1}-->'> <span
+                                            id="rental_date_span"
+                                                <!--{if $smarty.get.side_txt_use1 eq ''}-->style='display:none'<!--{/if}-->>
+                                        </span><br>
+                                        <input type='checkbox' name='chk_use2' id='chk_use2'
+                                            value='1'
+                                        <!--{if $smarty.get.chk_use2 == "1"}-->checked='checked'<!--{/if}-->
+                                            <!--{if $smarty.get.side_txt_use2 eq ''}-->style='display:none'<!--{/if}-->>
+                                            <input type='text' name='side_txt_use2' id='side_txt_use2'
+                                            class="rental_date_txt long20130315"
+                                            value='<!--{$smarty.get.side_txt_use2}-->'
+                                        <!--{if $smarty.get.side_txt_use2 eq ''}-->style='display:none'<!--{/if}-->
+                                            readonly="readonly"> <input type='hidden'
+                                            name='hdn_send_day2' id='hdn_send_day2'
+                                            value='<!--{$smarty.get.hdn_send_day2}-->'> <input
+                                            type='hidden' name='hdn_day_mode2' id='hdn_day_mode2'
+                                            value='<!--{$smarty.get.hdn_day_mode2}-->'> <span
+                                            id="rental_date_span2"
+                                                <!--{if $smarty.get.side_txt_use2 eq ''}-->style='display:none'<!--{/if}-->>
+                                        </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="">ご返却</td>
+                                        <td class=""><input type='text'
+                                            name='henkyaku_side_lbl' id='henkyaku_side_lbl' class="long20130315"
+                                            readonly="readonly"
+                                            value='<!--{$smarty.get.henkyaku_side_lbl}-->'></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- 日程未選択選択表示 -->
+                            <div id="calendar_lbl_side_non" class="calendar_lbl_side_non">ご利用日を選択してください</div>
+                        </div>
+                        <div id="tab-side-220130315" class="tab_box20130315">
+                            <table width="" border="0" cellspacing="0" cellpadding="0"
+                                class="table0120130315">
+                                <tr>
+                                    <td><img
+                                        src="<!--{$TPL_DIR}-->img/201303/list/pw_list11.gif"
+                                        width="16" height="15" />予約可能&nbsp;&nbsp;|&nbsp;&nbsp;<img
+                                        src="<!--{$TPL_DIR}-->img/201303/list/pw_list12.gif"
+                                        width="16" height="15" />予約不可&nbsp;&nbsp;|</td>
+                                </tr>
+                            </table>
+                            <div id="my_datepicker_side_m1" style=""></div>
+                            <img src="<!--{$TPL_DIR}-->img/201303/list/pw_list13.gif"
+                                width="" height="12" /> <span id="calendar_lbl_side_tab02"></span>
+                        </div>
+                        <div id="tab-side-320130315" class="tab_box20130315">
+                            <table width="" border="0" cellspacing="0" cellpadding="0"
+                                class="table0120130315">
+                                <tr>
+                                    <td><img
+                                        src="<!--{$TPL_DIR}-->img/201303/list/pw_list11.gif"
+                                        width="16" height="15" />予約可能&nbsp;&nbsp;|&nbsp;&nbsp;<img
+                                        src="<!--{$TPL_DIR}-->img/201303/list/pw_list12.gif"
+                                        width="16" height="15" />予約不可&nbsp;&nbsp;|</td>
+                                </tr>
+                            </table>
+                            <div id="my_datepicker_side_m2" style=""></div>
+                            <img src="<!--{$TPL_DIR}-->img/201303/list/pw_list13.gif"
+                                width="" height="12" /> <span id="calendar_lbl_side_tab03"></span>
+                        </div>
+                    </div>
+                    <!-- //#tab -->
+                </div>
+            </div>
+            <div id="dress20130315" class="detail_search">
+                <table>
+                    <!--▼サイズ▼-->
+                    <tr class="">
+                        <td class="search_title"><h3>サイズ</h3></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="check_wrap size">
+                                <div><input id="w_size_ss" name="size[]" type="checkbox" value="1" <!--{if "1"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label for="w_size_ss">SS</label></div>
+                                <div><input id="w_size_s" name="size[]" type="checkbox" value="2" <!--{if "2"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label for="w_size_s">S</label></div>
+                                <div><input id="w_size_m" name="size[]" type="checkbox" value="3" <!--{if "3"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label for="w_size_m">M</label></div>
+                                <div><input id="w_size_l" name="size[]" type="checkbox" value="4" <!--{if "4"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label for="w_size_l">L</label></div>
+                                <div><input id="w_size_ll" name="size[]" type="checkbox" value="5" <!--{if "5"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label for="w_size_ll">LL</label></div>
+                                <div><input id="w_size_3l" name="size[]" type="checkbox" value="6" <!--{if "6"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label for="w_size_3l">3L</label></div>
+                                <div><input id="w_size_4l" name="size[]" type="checkbox" value="7" <!--{if "7"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label for="w_size_4l">4L</label><!--//::N00140 Add 20140410--></div>
+                                <div><input id="d_maternity" name="size[]" type="checkbox" value="8" <!--{if "8"|in_array:$smarty.get.size}-->checked<!--{/if}-->/><label for="d_maternity">マタニティ</label></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--▲サイズ▲-->
+                    <!--▼丈▼-->
+                    <tr class="">
+                        <td class="search_title"><h3>丈</h3></td>
+                    </tr>
+                    <tr>
+                        <td class="">身長 <select name="len_knee_sel" id="len_knee_sel" class="len_knee_sel">
+                            <option label="150cm" <!--{if $smarty.get.len_knee_sel == "150"}-->selected<!--{/if}--> value="150">150cm</option>
+                            <option label="155cm" <!--{if $smarty.get.len_knee_sel == "155"}-->selected<!--{/if}--> value="155">155cm</option>
+                            <option label="160cm" <!--{if $smarty.get.len_knee_sel == "160"}-->selected<!--{/if}--> value="160">160cm</option>
+                            <option label="165cm" <!--{if $smarty.get.len_knee_sel == "165"}-->selected<!--{/if}--> value="165">165cm</option>
+                            <option label="170cm" <!--{if $smarty.get.len_knee_sel == "170"}-->selected<!--{/if}--> value="170">170cm</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="check_wrap">
+                                <div><input id="w_len_hizaue" name="len_chk[]" type="checkbox" value="1" <!--{if "1"|in_array:$smarty.get.len_chk}-->checked<!--{/if}-->/><label for="w_len_hizaue">ひざ上</label></div>
+                                <div><input id="w_len_hizatake" name="len_chk[]" type="checkbox" value="2" <!--{if "2"|in_array:$smarty.get.len_chk}-->checked<!--{/if}-->/><label for="w_len_hizatake">ひざ丈</label></div>
+                                <div><input id="w_len_hizasita" name="len_chk[]" type="checkbox" value="3" <!--{if "3"|in_array:$smarty.get.len_chk}-->checked<!--{/if}-->/><label for="w_len_hizasita">ひざ下</label></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--▲丈▲-->
+
+                    <!--▼色▼-->
+                    <tr class="">
+                        <td class="search_title"><h3>色</h3></td>
+                    </tr>
+                    <tr>
+                        <td class="">
+                            <div class="check_wrap color">
+                                <div class=""><input id="d_color_bk" name="color[]" type="checkbox" value="100" <!--{if "100"|in_array:$smarty.get.color}-->checked<!--{/if}-->/><label for="d_color_bk"><img src="<!--{$TPL_DIR}-->img/pw_list03.png" width="21" height="21" alt="黒・ネイビー" />黒・ネイビー</label></div>
+                                <div class=""><input id="d_color_pp" name="color[]" type="checkbox" value="110" <!--{if "110"|in_array:$smarty.get.color}-->checked<!--{/if}-->/><label for="d_color_pp"><img src="<!--{$TPL_DIR}-->img/pw_list04.png" width="21" height="21" alt="グレー・パープル" />グレー・パープル</label></div>
+                                <div class=""><input id="d_color_bl" name="color[]" type="checkbox" value="120" <!--{if "120"|in_array:$smarty.get.color}-->checked<!--{/if}-->/><label for="d_color_bl"><img src="<!--{$TPL_DIR}-->img/pw_list05.png" width="20" height="21" alt="ブルー・グリーン" />ブルー・グリーン</label></div>
+                                <div class=""><input id="d_color_rd" name="color[]" type="checkbox" value="130" <!--{if "130"|in_array:$smarty.get.color}-->checked<!--{/if}-->/><label for="d_color_rd"><img src="<!--{$TPL_DIR}-->img/pw_list06.png" width="21" height="21" alt="赤・ピンク" />赤・ピンク</label></div>
+                                <div class=""><input id="d_color_be" name="color[]" type="checkbox" value="140" <!--{if "140"|in_array:$smarty.get.color}-->checked<!--{/if}-->/><label for="d_color_be"><img src="<!--{$TPL_DIR}-->img/pw_list07.png" width="21" height="21" alt="ベージュ・ブラウン" />ベージュ・ブラウン</label></div>
+                                <div class=""><input id="d_color_wh" name="color[]" type="checkbox" value="150" <!--{if "150"|in_array:$smarty.get.color}-->checked<!--{/if}-->/><label for="d_color_wh"><img src="<!--{$TPL_DIR}-->img/pw_list08.png" width="20" height="19" alt="白・その他" />白・その他</label></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--▲色▲-->
+                    <!--▼アイテム▼-->
+                    <tr class="">
+                        <td class="search_title"><h3>季節</h3></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="all_season" name="season[]" type="checkbox" value="1" <!--{if "1"|in_array:$smarty.get.season}-->checked<!--{/if}--> /><label for="all_season">オールシーズン</label>
+                            <input id="summer" name="season[]" type="checkbox" value="2" <!--{if "2"|in_array:$smarty.get.season}-->checked<!--{/if}--> /><label for="summer">春夏</label>
+                            <input id="winter" name="season[]" type="checkbox" value="3" <!--{if "3"|in_array:$smarty.get.season}-->checked<!--{/if}--> /><label for="winter">秋冬</label>
+                        </td>
+                    </tr>
+                    <!--▲アイテム▲-->
+                </table>
+            </div>
+        <div class="submit_area">
+            <button type="submit" class="ui-btn">検索</button>
+        </div>
+        </form>
+        <!--{elseif $smarty.get.category_id == $smarty.const.CATEGORY_STOLE}-->
+        <!--【★羽織物・ここから】-->
+        <form method="get" name="form_haorimono" action="<!--{$smarty.const.URL_DIR}-->products/list.php">
+            <input type="hidden" name="<!--{$smarty.const.TRANSACTION_ID_NAME}-->" value="<!--{$transactionid}-->" />
+            <input type="hidden" name="category_id"
+            value="<!--{$smarty.get.category_id}-->"> <input
+            type="hidden" name="mode" value="category_search"> <input
+            type="hidden" id="rental_date" name="rental_date"
+            value="<!--{$smarty.get.rental_date}-->">
+            <div id="dress20130315" class="detail_search">
+                <table>
+                    <!--▼サイズ▼-->
+                    <tr class="">
+                        <td class="search_title"><h3>サイズ</h3></td>
+                    </tr>
+                    <tr>
+                        <td class="">
+                            <div class="check_wrap">
+                                <div><input id="w_size_s" name="size[]" type="checkbox" value="000_80" <!--{if $smarty.get.size[0] == "80"}-->checked<!--{/if}-->/><label for="w_size_s">S</label></div>
+                                <div><input id="w_size_m" name="size[]" type="checkbox" value="001_81" <!--{if $smarty.get.size[1] == "81"}-->checked<!--{/if}-->/><label for="w_size_m">M</label></div>
+                                <div><input id="w_size_l" name="size[]" type="checkbox" value="002_82" <!--{if $smarty.get.size[2] == "82"}-->checked<!--{/if}-->/><label for="w_size_l">L</label></div>
+                                <div><input id="w_size_ll" name="size[]" type="checkbox" value="003_200" <!--{if $smarty.get.size[3] == "200"}-->checked<!--{/if}-->/><label for="w_size_ll">LL</label></div>
+                                <div><input id="w_size_3l" name="size[]" type="checkbox" value="004_273" <!--{if $smarty.get.size[4] == "273"}-->checked<!--{/if}-->/><label for="w_size_3l">3L</label></div>
+                                <div><input id="w_size_4l" name="size[]" type="checkbox" value="005_274" <!--{if $smarty.get.size[5] == "274"}-->checked<!--{/if}-->/><label for="w_size_4l">4L</label></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--▲サイズ▲-->
+                    <!--▼色▼-->
+                    <tr class="tr0320130315">
+                        <td class="search_title"><h3>ボレロの色</h3></td>
+                    </tr>
+                    <tr>
+                        <td class="">
+                            <div class="check_wrap color">
+                                <div><input id="b_color_w" name="color[]" type="checkbox" value="000_84" <!--{if $smarty.get.color[0] == "84"}-->checked<!--{/if}-->/><label for="b_color_w"><img src="<!--{$TPL_DIR}-->img/pw_list_b_white.png" width="21" height="21" alt="白" />白</label></div>
+                                <div><input id="b_color_sl" name="color[]" type="checkbox" value="001_85" <!--{if $smarty.get.color[1] == "85"}-->checked<!--{/if}-->/><label for="b_color_sl"><img src="<!--{$TPL_DIR}-->img/pw_list_b_silver.png" width="21" height="21" alt="シルバー" />シルバー</label></div>
+                                <div><input id="b_color_be" name="color[]" type="checkbox" value="002_86" <!--{if $smarty.get.color[2] == "86"}-->checked<!--{/if}-->/><label for="b_color_be"><img src="<!--{$TPL_DIR}-->img/pw_list_b_beige.gold.png" width="21" height="21" alt="ベージュ・ゴールド" />ベージュ・ゴールド</label></div>
+                                <div><input id="b_color_bk" name="color[]" type="checkbox" value="003_87" <!--{if $smarty.get.color[3] == "87"}-->checked<!--{/if}-->/><label for="b_color_bk"><img src="<!--{$TPL_DIR}-->img/pw_list_b_black.png" width="21" height="21" alt="黒" />黒</label></div>
+                                <div><input id="b_color_p" name="color[]" type="checkbox" value="004_88" <!--{if $smarty.get.color[4] == "88"}-->checked<!--{/if}-->/><label for="b_color_p"><img src="<!--{$TPL_DIR}-->img/pw_list_b_pink.png" width="21" height="21" alt="ピンク" />ピンク</label></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--▲色▲-->
+                    <!--▼アイテム▼-->
+                    <tr class="">
+                        <td class="search_title"><h3>アイテム</h3></td>
+                    </tr>
+                    <tr>
+                        <td class="">
+                            <div class="check_wrap">
+                                <div><input id="b_type_st" name="type[]" type="checkbox" value="000_78" <!--{if $smarty.get.type[0] == "78"}-->checked<!--{/if}-->/><label for="b_type_st">ストール</label></div>
+                                <div><input id="b_type_bo" name="type[]" type="checkbox" value="001_79" <!--{if $smarty.get.type[1] == "79"}-->checked<!--{/if}-->/><label for="b_type_bo">ボレロ</label></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--▲アイテム▲-->
+
+                    <!--//::N00183 Add 20140616-->
+                    <!--袖の長さ-->
+                    <tr class="tr0120130315">
+                        <td class="search_title"><h3>袖の長さ</h3></td>
+                    </tr>
+                    <tr>
+                        <td class="">
+                            <div class="check_wrap">
+                                <div><input id="w_sleeve_length_s" name="sleeve_length[]" type="checkbox" value="000_275" <!--{if $smarty.get.sleeve_length[0] == "275"}-->checked<!--{/if}-->/><label for="w_sleeve_length_s">半袖</label></div>
+                                <div><input id="w_sleeve_length_m" name="sleeve_length[]" type="checkbox" value="001_276" <!--{if $smarty.get.sleeve_length[1] == "276"}-->checked<!--{/if}-->/><label for="w_sleeve_length_m">五分袖</label></div>
+                                <div><input id="w_sleeve_length_l" name="sleeve_length[]" type="checkbox" value="002_277" <!--{if $smarty.get.sleeve_length[2] == "277"}-->checked<!--{/if}-->/><label for="w_sleeve_length_l">七分袖</label></div>
+                                <div><input id="w_sleeve_length_ll" name="sleeve_length[]" type="checkbox" value="003_278" <!--{if $smarty.get.sleeve_length[3] == "278"}-->checked<!--{/if}-->/><label for="w_sleeve_length_ll">長袖</label></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--袖の長さ-->
+                    <!--生地の厚さ-->
+                    <tr class="tr0120130315">
+                        <td class="search_title"><h3>生地の厚さ</h3></td>
+                    </tr>
+                    <tr>
+                        <td class="">
+                            <div class="check_wrap">
+                                <div><input id="w_thickness_s" name="thickness[]" type="checkbox" value="000_279" <!--{if $smarty.get.thickness[0] == "279"}-->checked<!--{/if}-->/><label for="w_thickness_s">薄手</label></div>
+                                <div><input id="w_thickness_m" name="thickness[]" type="checkbox" value="001_280" <!--{if $smarty.get.thickness[1] == "280"}-->checked<!--{/if}-->/><label for="w_thickness_m">標準</label></div>
+                                <div><input id="w_thickness_l" name="thickness[]" type="checkbox" value="002_281" <!--{if $smarty.get.thickness[2] == "281"}-->checked<!--{/if}-->/><label for="w_thickness_l">厚手</label></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--生地の厚さ-->
+                    <!--合うドレスのカラー-->
+                    <tr class="tr0120130315">
+                        <td class="search_title"><h3>合うドレスのカラー</h3></td>
+                    </tr>
+                    <tr>
+                        <td class="">
+                            <div class="check_wrap color">
+                                <div class="seiretu_color">
+                                    <input id="w_fits_color_bla" name="fits_color[]" type="checkbox" value="000_282" <!--{if $smarty.get.fits_color[0] == "282"}-->checked<!--{/if}-->/>
+                                    <label for="w_fits_color_bla"><img src="<!--{$TPL_DIR}-->img/pw_list_black.png" width="17" height="21" alt="黒" />黒</label>
+                                </div>
+                                <div class="seiretu_color">
+                                    <input id="w_fits_color_nav" name="fits_color[]" type="checkbox" value="001_283" <!--{if $smarty.get.fits_color[1] == "283"}-->checked<!--{/if}-->/>
+                                    <label for="w_fits_color_nav"><img src="<!--{$TPL_DIR}-->img/pw_list_navy.png" width="17" height="21" alt="ネイビー" />ネイビー</label>
+                                </div>
+                                <div class="seiretu_color">
+                                    <input id="w_fits_color_blu" name="fits_color[]" type="checkbox" value="002_284" <!--{if $smarty.get.fits_color[2] == "284"}-->checked<!--{/if}-->/>
+                                    <label for="w_fits_color_blu"><img src="<!--{$TPL_DIR}-->img/pw_list_blue.png" width="17" height="21" alt="青" />青</label>
+                                </div>
+                                <div class="seiretu_color">
+                                    <input id="w_fits_color_gre" name="fits_color[]" type="checkbox" value="003_285" <!--{if $smarty.get.fits_color[3] == "285"}-->checked<!--{/if}-->/>
+                                    <label for="w_fits_color_gre"><img src="<!--{$TPL_DIR}-->img/pw_list_green.png" width="17" height="21" alt="緑" />緑</label>
+                                </div>
+                                <div class="seiretu_color">
+                                    <input id="w_fits_color_pur" name="fits_color[]" type="checkbox" value="004_286" <!--{if $smarty.get.fits_color[4] == "286"}-->checked<!--{/if}-->/>
+                                    <label for="w_fits_color_pur"><img src="<!--{$TPL_DIR}-->img/pw_list_Purple.png" width="17" height="21" alt="紫" />紫</label>
+                                </div>
+                                <div class="seiretu_color">
+                                    <input id="w_fits_color_red" name="fits_color[]" type="checkbox" value="005_287" <!--{if $smarty.get.fits_color[5] == "287"}-->checked<!--{/if}-->/>
+                                    <label for="w_fits_color_red"><img src="<!--{$TPL_DIR}-->img/pw_list_red.png" width="17" height="21" alt="赤" />赤</label>
+                                </div>
+                                <div class="seiretu_color">
+                                    <input id="w_fits_color_pin" name="fits_color[]" type="checkbox" value="006_288" <!--{if $smarty.get.fits_color[6] == "288"}-->checked<!--{/if}-->/>
+                                    <label for="w_fits_color_pin"><img src="<!--{$TPL_DIR}-->img/pw_list_pink.png" width="17" height="21" alt="ピンク" />ピンク</label>
+                                </div>
+                                <div class="seiretu_color">
+                                    <input id="w_fits_color_bei" name="fits_color[]" type="checkbox" value="007_289" <!--{if $smarty.get.fits_color[7] == "289"}-->checked<!--{/if}-->/>
+                                    <label for="w_fits_color_bei"><img src="<!--{$TPL_DIR}-->img/pw_list_beige.png" width="17" height="21" alt="ベージュ" />ベージュ</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+                <div class="submit_area">
+                    <button type="submit" class="ui-btn">検索</button>
+                </div>
+            </div>
+            <!--//::N00183 end 20140616-->
+            <!--{elseif $smarty.get.category_id == $smarty.const.CATEGORY_OTHERS}-->
+            <!--【★その他】-->
+            <!--{elseif $smarty.get.category_id == $smarty.const.CATEGORY_CEREMONYSUIT}-->
+            <!--【★セレモニースーツ】-->
+			<!--{else}-->
+            <!--{* バッグの検索枠削除 *}-->
+            <!--{/if}-->
+
+            </form>
+    </div>
+    <!-- //#dress -->
+
+    <!--▲検索バー -->
+    <div class="side_cateogory">
+        <div class="title">
+            カテゴリーを選ぶ
+        </div>
+        <div class="search_condition">
+            <div class="categorylistmenu">
+                <div class="categorylist">
+                    <ul class="categorylist__grp">
+                      <li class="categorylist__item"><a class="categorylist__link<!--{if $smarty.get.category_id === $smarty.const.CATEGORY_DRESS_ALL && (int)$smarty.get.kind2 === $smarty.const.CATEGORY_DRESS && $smarty.get.name === ''}--> categorylist__link--current<!--{/if}-->" href="<!--{$url_dress_list}-->">
+                          <div class="categorylist__thumbs">
+                            <figure class="categorylist__fig"><img class="categorylist__img" src="<!--{$TPL_URLPATH}-->img/category_thumbs_dress.jpg" alt="ドレス"></figure>
+                          </div><span class="categorylist__label">ドレス</span></a>
+                      </li>
+                      <li class="categorylist__item"><a class="categorylist__link<!--{if $smarty.get.category_id === $smarty.const.CATEGORY_DRESS_ALL && (int)$smarty.get.kind3 === $smarty.const.CATEGORY_SET_DRESS && $smarty.get.name === ''}--> categorylist__link--current<!--{/if}-->" href="<!--{$url_set_dress_list}-->">
+                          <div class="categorylist__thumbs">
+                            <figure class="categorylist__fig"><img class="categorylist__img" src="<!--{$TPL_URLPATH}-->img/category_thumbs_set.jpg" alt="セットドレス"></figure>
+                          </div><span class="categorylist__label">セットドレス</span></a>
+                      </li>
+                      <li class="categorylist__item"><a class="categorylist__link<!--{if $smarty.get.category_id === '' && $smarty.get.name === $smarty.const.PCODE_PANTSDRESS}--> categorylist__link--current<!--{/if}-->" href="<!--{$url_ceremony_pants_list}-->">
+                          <div class="categorylist__thumbs">
+                            <figure class="categorylist__fig"><img class="categorylist__img" src="<!--{$TPL_URLPATH}-->img/category_thumbs_pants.jpg" alt="パンツドレス"></figure>
+                          </div><span class="categorylist__label">パンツドレス</span></a>
+                      </li>
+                      <li class="categorylist__item"><a class="categorylist__link ui-link<!--{if (int)$smarty.get.category_id === $smarty.const.CATEGORY_CEREMONYSUIT}--> categorylist__link--current<!--{/if}-->" href="<!--{$url_ceremony_one_piece_list}-->">
+                            <div class="categorylist__thumbs">
+                              <figure class="categorylist__fig"><img class="categorylist__img" src="/user_data/packages/sphone/img/category_thumbs_ceremony.jpg" alt="セレモニースーツ"></figure>
+                            </div><span class="categorylist__label">セレモニー<br>スーツ</span>
+                          </a>
+                      </li>
+                      <li class="categorylist__item"><a class="categorylist__link<!--{if (int)$smarty.get.category_id === $smarty.const.CATEGORY_ONEPIECE}--> categorylist__link--current<!--{/if}-->" href="<!--{$url_one_piece_list}-->">
+                          <div class="categorylist__thumbs">
+                            <figure class="categorylist__fig"><img class="categorylist__img" src="<!--{$TPL_URLPATH}-->img/category_thumbs_onepiece.jpg" alt="ワンピース"></figure>
+                          </div><span class="categorylist__label">ワンピース</span></a>
+                      </li>
+                      <li class="categorylist__item"><a class="categorylist__link<!--{if (int)$smarty.get.category_id === $smarty.const.CATEGORY_BAG}--> categorylist__link--current<!--{/if}-->" href="<!--{$url_bag_list}-->">
+                          <div class="categorylist__thumbs">
+                            <figure class="categorylist__fig"><img class="categorylist__img" src="<!--{$TPL_URLPATH}-->img/category_thumbs_bag.jpg" alt="バッグ"></figure>
+                          </div><span class="categorylist__label">バッグ</span></a>
+                      </li>
+                      <li class="categorylist__item"><a class="categorylist__link<!--{if (int)$smarty.get.category_id === $smarty.const.CATEGORY_STOLE}--> categorylist__link--current<!--{/if}-->" href="<!--{$url_outer_list}-->">
+                          <div class="categorylist__thumbs">
+                            <figure class="categorylist__fig"><img class="categorylist__img" src="<!--{$TPL_URLPATH}-->img/category_thumbs_outer.jpg" alt="羽織"></figure>
+                          </div><span class="categorylist__label">羽織</span></a>
+                      </li>
+                      <li class="categorylist__item"><a class="categorylist__link<!--{if $smarty.get.category_id === null && $smarty.get.name === $smarty.const.PCODE_COAT}--> categorylist__link--current<!--{/if}-->" href="<!--{$url_ceremony_coat_list}-->">
+                          <div class="categorylist__thumbs">
+                            <figure class="categorylist__fig"><img class="categorylist__img" src="<!--{$TPL_URLPATH}-->img/category_thumbs_coat.jpg" alt="コート・ガウン"></figure>
+                          </div><span class="categorylist__label">コート<br>ガウン</span></a>
+                      </li>
+                      <li class="categorylist__item"><a class="categorylist__link<!--{if (int)$smarty.get.category_id === $smarty.const.CATEGORY_NECKLACE}--> categorylist__link--current<!--{/if}-->" href="<!--{$url_necklace_list}-->">
+                          <div class="categorylist__thumbs">
+                            <figure class="categorylist__fig"><img class="categorylist__img" src="<!--{$TPL_URLPATH}-->img/category_thumbs_neckless.jpg" alt="ネックレス"></figure>
+                          </div><span class="categorylist__label">ネックレス</span></a>
+                      </li>
+                      <li class="categorylist__item"><a class="categorylist__link<!--{if (int)$smarty.get.category_id === $smarty.const.CATEGORY_OTHERS}--> categorylist__link--current<!--{/if}-->" href="<!--{$url_other_item_list}-->">
+                          <div class="categorylist__thumbs">
+                            <figure class="categorylist__fig"><img class="categorylist__img" src="<!--{$TPL_URLPATH}-->img/category_thumbs_other.jpg" alt="その他小物"></figure>
+                          </div><span class="categorylist__label">その他小物</span></a>
+                      </li>
+                    </ul>
+                </div><!-- // .categorylist -->
+            </div><!-- // .categorylistmenu -->
+        </div>
+    </div>
+<!--{*
+    <!--ご利用方法用ガイド ここから-->
+    <!--{if $smarty.server.PHP_SELF == '/user_data/guide.php'}-->
+    <div class="page_nav">
+        <div class="title">
+            <img src="<!--{$TPL_URLPATH}-->img/submenu_ryoukinn_goriyougaido.jpg">
+        </div>
+        <div class="page_nav_wrap tab-index">
+            <ul>
+                <li>
+                    <a href="#tab1">
+                        簡単ガイド・料金
+                    </a>
+                </li>
+                <li>
+                    <a href="#tab6">
+                        商品の追加・変更
+                    </a>
+                </li>
+                <li><a href="#tab2">お届け詳細</a></li>
+                <li><a href="#tab3">ご返却詳細</a></li>
+                <li><a href="#tab4">キャンセル・延滞</a></li>
+                <li><a href="#tab5">返金詳細</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--{/if}-->
+    <!--ご利用方法用ガイド ここまで-->
+*}-->
+<!--{*
+    <!--よくある質問用ガイド ここから-->
+    <!--{if $smarty.server.PHP_SELF == '/user_data/faq.php'}-->
+    <div class="page_nav">
+        <div class="title">
+            <img src="<!--{$TPL_URLPATH}-->img/submenu_tt_d.jpg">
+        </div>
+        <div class="page_nav_wrap">
+            <ul>
+                <li><a href="#">よくあるご質問一覧へ</a></li>
+                <li><a href="?#faq01">「困った！」ときのご質問</a></li>
+                <li><a href="?#faq02">「ご注文・お支払い」について</a></li>
+                <li><a href="?#faq06">「ご注文後の変更・キャンセル」について</a></li>
+                <li><a href="?#faq03">「お届け」について</a></li>
+                <li><a href="?#faq04">「返却」について</a></li>
+                <li><a href="?#faq05">「その他のご質問」について</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--{/if}-->
+    <!--よくある質問用ガイド ここまで-->
+*}-->
+</div>

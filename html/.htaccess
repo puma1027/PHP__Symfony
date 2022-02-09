@@ -1,0 +1,137 @@
+RewriteEngine on
+RewriteCond %{QUERY_STRING} ^product_id=$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=500$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=0$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=1042$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=171$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=1106$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=660$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=675$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=1222$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=1086&date1=&date2=$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=871$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=519&date1=&date2=$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=337&date1=&date2=$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=1085&date1=&date2=$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=1071&date1=&date2=$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=511&date1=&date2=$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=338&date1=&date2=$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=532&date1=&date2=$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=1063&date1=&date2=$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=1073&date1=&date2=$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+RewriteCond %{QUERY_STRING} ^product_id=812$
+RewriteRule products/detail.php https://onepiece-rental.net/? [R=301,L]
+
+
+# 基本は SC_Initial.php で設定するが、ini_setで反映されないものはここで設定する
+<IfModule mod_php5.c>
+php_value mbstring.language Japanese
+php_flag mbstring.encoding_translation on
+#php_flag mbstring.encoding_translation off
+php_value output_handler none
+php_flag magic_quotes_gpc off
+php_flag session.auto_start 0
+
+# INI_ALL なのにもかかわらず, ini_set で指定しても反映されない環境がある...
+php_value mbstring.internal_encoding UTF-8
+
+# デフォルトテンプレートの状態で 2M 近くになるため
+php_value upload_max_filesize 5M
+#php_value post_max_size 8M
+php_flag register_globals off
+</IfModule>
+
+RewriteEngine on
+
+#ELB経由のアクセスの場合、ELB->EC2はすべてHTTP通信なのでその対策
+#SetEnvIf X-Forwarded-Proto ^https$ HTTPS=on
+#RewriteCond %{HTTP:X-Forwarded-Proto} ^http$
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+# HTTPをHTTPSにリダイレクト（ELB化した後は削除する
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+#index.html はリダイレクト
+RewriteCond %{THE_REQUEST} ^.*/index.html
+RewriteRule ^(.*)index.html$ https://onepiece-rental.net/$1 [R=301,L]
+
+
+#RewriteEngine on
+#
+#  RewriteCond %{REMOTE_ADDR} !^メンテナンス中でもアクセスを許可するIPアドレス$
+#  RewriteCond %{REQUEST_URI} !^/メンテナンス中でもどこからでもアクセスを許可するファイル名$
+#
+# メンテナンス中の表示をおこなう時は以下を有効（#はずす）。メンテナンスが終わったら以下を無効（#つける）
+#RewriteCond %{TIME_HOUR}%{TIME_MIN} <0800
+
+#RewriteCond %{REMOTE_ADDR} !^210\.229\.216\.2$
+#RewriteCond %{REMOTE_ADDR} !^219\.117\.246\.87$
+#RewriteCond %{REMOTE_ADDR} !^221\.254\.43\.154$
+#RewriteCond %{REMOTE_ADDR} !^116\.80\.255\.39$
+#RewriteCond %{REMOTE_ADDR} !^223\.218\.35\.45$
+#RewriteCond %{REMOTE_ADDR} !^58\.91\.95\.117$
+
+#RewriteCond %{REQUEST_URI} !^/update.html$
+#RewriteCond %{REQUEST_URI} !^/bg.gif$
+#RewriteCond %{REQUEST_URI} !^/favicon.ico$
+#RewriteCond %{REQUEST_URI} !^/logo.png$
+#RewriteCond %{REQUEST_URI} !^/refine-test.php$
+#RewriteCond %{REQUEST_URI} !^/ntunnel_pgsql.php$
+#RewriteRule ^(.*)$ http://onepiece-rental.net/update.html [L,R=302]
+
+# メンテナンス中の表示をおこなう時ここまで有効（#はずす）。メンテナンスが終わったらここまで無効（#つける）
+
+# メンテナンス中なら以下を無効（#つける）。メンテナンスが終わったら以下を有効（#はずす）
+#RewriteCond %{TIME_HOUR}%{TIME_MIN} >0800
+#RewriteRule ^update\.html$ http://onepiece-rental.net/ [L,R]
+
+# 404 errorの場合
+ErrorDocument 403 /user_data/404.php
+ErrorDocument 404 /user_data/404.php
+
+# Leverage browser caching(ブラウザのキャッシュ対応)
+<IfModule mod_expires.c>
+# Expires
+ExpiresActive on
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/svg "access plus 1 month"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType text/js "access plus 1 month"
+ExpiresByType text/javascript "access plus 1 month"
+ExpiresByType application/javascript "access plus 1 month"
+ExpiresByType application/x-javascript "access plus 1 month"
+ExpiresByType application/rss+xml "access plus 2 days"
+ExpiresByType text/html "modification plus 2 hours"
+</IfModule>
+
+# gzip圧縮
+<IfModule mod_deflate.c>
+SetOutputFilter DEFLATE
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+SetEnvIfNoCase Request_URI \.(?:gif|jpg|jpeg|png|ico)$ no-gzip dont-vary
+</IfModule>

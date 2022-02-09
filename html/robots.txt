@@ -1,0 +1,11 @@
+User-agent: *
+
+# Disallow: /resize_image.php?*
+Disallow: /cart/
+Disallow: /entry/
+Disallow: /shopping/
+Disallow: /rss/index.php
+Disallow: /products/review2.php?product_id=294
+
+Sitemap: https://onepiece-rental.net/sitemap.xml
+Sitemap: https://onepiece-rental.net/sitemap_image.xml

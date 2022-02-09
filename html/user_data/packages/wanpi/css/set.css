@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* CSS Document */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  /*color:#4d4d4d;*/
+  font-weight: normal;
+  text-decoration: none; }
+
+a {
+  color: #ffffff;
+  text-decoration: none; }
+
+a:hover {
+  color: #ff4500;
+  text-decoration: underline; }
+
+/**************************************************************************※fontの設定 ブラウザで一貫したサイズで定義参考サイト：http://coliss.com/articles/build-websites/operation/css/font-size-with-rem-by-snook-ca.html***************************************************************************/
+html {
+  font-size: 62.5%; }
+
+body {
+  /* =12px設定 */
+  font-size: 12px;
+  font-size: 1.2rem; }

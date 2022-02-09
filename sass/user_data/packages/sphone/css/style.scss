@@ -1,0 +1,474 @@
+@charset "UTF-8";
+
+@import 'setting.scss';
+@import 'mixin.scss';
+
+/* common */
+
+// #wrapper{  width: 100%;  color: #441118; background-color: #f6f2f1;}
+// header{  width: 100%;  background-color: #efebea;  padding: 16px 0;}
+// .sectionInner, nav, #cartFlow{ max-width: 640px; margin: 0 auto;}
+// header nav li{  float: left;  width: 33.133%;}
+// header nav li:nth-child(2){ margin: 0 0.3%;}
+// header nav li img{  width: 100%;}
+// section h2{  color: #fff;  background-color: #451213;  font-size: 23px;  padding: 23px 0 22px 2%;  font-weight: bold;}
+// section h2 img{  margin-right:2%;  vertical-align: middle;}
+input[type="radio"]{    opacity : 0;      /*width: 100%;      height: 100%;*/      padding: 0;  }
+input[type="radio"] + label{    display: block;    background: url(../img/radio_off.png) no-repeat 4% center;    background-size: 33px;    padding: 10px 20px 10px 80px;    text-decoration: none;}
+input[type="radio"]:checked + label{    background: url(../img/radio_on.png) no-repeat 4% center;    background-size: 33px;}
+/* 商品一覧 */
+// .listWrap{  margin-bottom: 20px;  display: inline-block;}
+// .listWrap li{  float: left;  width: 29.3333%;  padding: 2%;  /*min-height: 205px;*/}
+// .listWrap li a{  text-decoration: none;  color: #451213;}
+
+.itemCode{  font-size: 9px; text-align: center; margin: 3px 0;}
+.reviewStar{ float: left;  font-size: 15px;}
+.reviewStar span{  width: 13px;  float: left;}
+.star{ color: #daac34;}
+.star_gray{ color: #bebebe;}
+.reviewRight{ float: right; font-size: 10px;  margin-top: 4px;}
+#pageNation{ font-size: 40px;  color: #fff;  width: 100%;  text-align: center; display: inline-block;  margin-bottom: 20px;}
+#pageNation .left, #pageNation .right{ /*2014/01/17 pwb Update*/ padding: 0px 29px;  /*update End*/  border: 2px solid #fbdadb;  background-color: #daa3a6;}
+#pageNation .left{ float: left;  margin-left: 2%;}
+#pageNation .right{  float: right; margin-right: 2%;}
+.pageNumber{  color: #2d2d2d; font-size: 25px;  }
+.pw_area03 img{  width: 100%;}
+#disp00{ width: 100%;}
+#disp00 td{  display: inline-block;}
+.text02{ font-size: 10px;  text-align: center;}
+/* しぼりこむ */.searchWrap form{  padding: 2%;  width:96%;}
+.searchWrap form table{  width: 100%;  margin-bottom: 20px;  border-collapse: collapse;  border: 2px solid #edc6cb;}
+.dropMenu{ background-color: #cb9298;  padding: 20px 40px 15px 20px; border-bottom: 1px solid #b15d66; font-size: 24px;  overflow: hidden; display: block; text-align: left;}
+.dropMenu span{ margin-left: 1%;  font-size: 19px;}
+/*2014/01/19 pwb Update.dropMenu img{  width: 7%;  height: 7%;}
+*/.dropMenu .selection{ font-size: 18px;}
+// .searchWrap form .dropMenu:after{  content: "▼"; float: right; margin: 2px 0 0;  font-size: 20px;}
+.searchWrap form table td{ background-color: #fff; padding: 4% 2%; margin: 0 auto; display: block;}
+.searchWrap div#calendar_area td{ background-color: #fff; padding: 0px; margin: 0 auto; display: table-cell;}
+.searchWrap form p{  margin-bottom: 20px;  text-align: center; font-size: 24px;  font-weight: bold;}
+.calendar{ border: none!important;}
+.calendar td{ width: 9%!important;  display: inline-block!important;  text-align: center; padding: 0!important; border: 1px solid #451213;}
+.calendar td.sun, .calendar td.sat{  width:25%!important;}
+.calendarMonth{  margin-bottom: 5px;}
+.calendarMonth li{  float: left;  margin-right: 20px; padding: 10px 0 0 0;}
+.currentMonth{ font-size: 25px;  padding: 0!important;}
+.calendarMonth li a{  color: #451213;}
+.calendar tbody .weekend{ padding: 0.1%;}
+.calendar span{  display: block; margin: 1px;  padding: 20px 0;}
+.select{ text-decoration: underline; cursor: pointer;}
+.maintenance span{ background-color: #ccc!important; color: #999;}
+.calendar thead td{  border-left: none;  border-right: none; padding-left: 1px!important;  padding-right: 1px!important;}
+.calendar thead td:first-child{ border-left: 1px solid #451213; border-right: none; padding-left: 0!important;  padding-right: 1px!important;}
+.calendar thead td:last-child{  border-right: 1px solid #451213;  border-left: none;  padding-right: 0!important; padding-left: 1px!important;}
+thead .sun span{ color: #a50414;}
+.currentMonth li a{ color: #451213!important;}
+.cycle{ border: none!important; border-collapse: separate!important;  border-spacing: 2px;}
+.cycle th, .cycle td{  padding: 20px!important;  border: 2px solid #999; margin-bottom: 10px;  font-size: 90%;}
+.cycle th{  background-color: #999; color: #fff;}
+.cycle td{ background-color: #eee!important; color: #777;  font-weight: bold;}
+.checkbox ul{    list-style: none;    margin: 0 auto 25px;    padding: 0;    background: #fff;    border-radius: 8px;    border: 2px solid #ccc;}
+.checkbox li{ float: left;  background: #ccc; border-radius: 10px;  padding: 0; margin: 0;  position: relative; margin-right: 2%; min-width: 22.7%; margin-bottom:2%; }
+form{  font-size:90%;}
+#sizeSelect li:nth-child(4), #lengthSelect li:nth-child(4){  margin-right: 0!important;}
+#sizeSelect li:last-child{ width: 47%; margin-right: 0;}
+.checkbox input{    position: absolute;    width: 100%;}
+.checkbox input[type="checkbox"]{    opacity : 0;      width: 100%;      height: 100%;      padding: 0;  }
+.checkbox input[type="checkbox"] + label{    display: block;    background: url(../img/check_off.gif) no-repeat 10% center;    background-size: 40px;    padding: 20px 10px 20px 55px;    color: #2d2d2d;    text-decoration: none;    text-align:center;}
+.checkbox input[type="checkbox"]:checked + label{    background: url(../img/check_on.gif) no-repeat 10% center;    background-size: 40px;}
+#lengthSelect li:first-child{  width: 100%;  background: none; margin-right: 0;}
+#lengthSelect li{  width: 32%;}
+#lengthSelect li label{ padding: 20px 5px 20px 51px;}
+select{    -webkit-appearance: button;    -moz-appearance: button;    appearance: button;    width: 100%;    line-height: 50px;    /*font-size: 13px;*/    text-indent: 1em;    color: #2d2d2d;    background-color:#fff;    border: 2px solid #ccc;    cursor: pointer;   display: block;   background: url(../img/select.gif) no-repeat right center;}
+#colorSelect li{ background-color:#fff;  width: 48%;}
+#colorSelect input[type="checkbox"] + label{  background: url(../img/check-frame_off.gif) no-repeat 10% center;  padding: 20px 10px 20px 69px;}
+#colorSelect input[type="checkbox"]:checked + label{    background: url(../img/check-frame_on.gif) no-repeat 10% center;}
+#itemSelect li{ width: 100%;  background-color: #fff; border: 2px solid #ccc; margin-right: 0;}
+#itemSelect input[type="checkbox"] + label{  background: url(../img/check-frame_off.gif) no-repeat 10px center;}
+#itemSelect input[type="checkbox"]:checked + label{  background: url(../img/check-frame_on.gif) no-repeat 10px center;}
+#itemSelect li label{ text-align: left; padding: 20px 0 20px 61px;  font-size: 90%;}
+/*2014/01/18 pwb Update#itemSelect label span{  padding-right: 10px;  float: right; color: #bd1023;}
+*/#ageSelect li{  width: 31.3%;}
+#ageSelect li label, #sceneSelect li label{ font-size: 11px;  padding: 20px 5px 20px 50px;}
+#sceneSelect li{ width: 100%;}
+#fitSelect li, #coverSelect li, #childSelect li{ width: 100%;}
+#fitSelect li label, #childSelect li label{  text-align: left;  padding: 20px 5px 20px 60px;}
+#fitSelect input[type="checkbox"] + label, #coverSelect input[type="checkbox"] + label, #childSelect input[type="checkbox"] + label{  background: url(../img/check_off.gif) no-repeat 10px center;}
+#fitSelect input[type="checkbox"]:checked + label, #coverSelect input[type="checkbox"]:checked + label, #childSelect input[type="checkbox"]:checked + label{ background: url(../img/check_on.gif) no-repeat 10px center;}
+.submit{  margin: 0 auto; width: 80%;}
+.submit img{  width: 100%;}
+#totalReviewWrap{  display: inline-block;  width: 96%; font-size: 14px;  margin: 20px 0; padding: 0 2%;}
+.custReviewTop{  background-color: #cb9298;  padding: 2%;}
+#totalReview{  float: right;}
+.custStar{  background-color: #fff; padding: 5px 10px;  display: inline-block;  width: 107px; margin: 10px 0 0 2%;}
+.rating{ float: left;}
+.reviewerStatus{ display: inline-block;  width: 63%;}
+.reviewerStatus img{  float: left;  margin-right: 2%;}
+.reviewerStatus span{ font-size: 21px;  float: left;  width: 75%;}
+.unit-rating_yellow_s{  width: 65px;  float: right; margin-top: 3px;}
+.fsize_large{  font-size: 19px;  font-weight: bold;  color: #fff;  text-align: center; display: block;}
+.custReviewLeft{  width: 130px; float: left;  margin-right: 2%;}
+.custReviewBottom{  padding: 20px 2% 40px;}
+.reviewDate{ font-size: 20px;  font-weight: bold;  margin-right: 5px;}
+.useScene{ padding: 5px;}
+.kekkonshiki{ background-color:#e23737; color: #fff;}
+.nijikai{  background-color:#dda228;}
+.konkatsu{  background-color:#9059cd;}
+.useScene + p{  margin: 10px 0;}
+/* 商品詳細 */.favorite{  position:absolute;  right:5.6%; top: 130px; z-index: 200;}
+.mainpicArea{ text-align: center; padding: 24px 5px;}
+.mainpicArea img{  width: 70%; height: auto;}
+.thumbnailArea li{  float: left;  display: inline-block;  width: 10%;}
+.thumbnailArea img{ width: 100%;}
+.highlight{  z-index: 200;}
+.highlight img, thumbnailArea li:first-child img{ border: 2px solid #bc1020;  width: 94%;}
+.detailbottom{  /*2014/01/20 pwb update margin: 20px 0;*/ display: block;}
+.detailArea{  float: left;  margin-left: 1%;  line-height: 28px;}
+.buttonArea a, .buttonBack a, .buttonAreaWrap a{ float: right; margin-right: 1%; border-radius: 8px; box-shadow: 0px 4px 0px -1px #6a0608; color: #fff;  padding: 30px 20px; text-decoration: none;}
+.buttonArea a, #conformAddress .buttonArea a{  font-size: 24px;  color: #fff;  text-decoration: none;}
+.productPrice{ display: inline-block;  width: 100%;  margin-bottom:20px;}
+.priceArea{ float: left;}
+.productPrice .buttonArea a{ padding: 3% 4%;}
+.priceArea{ font-size: 19px;  color: #bc1020;}
+.priceArea p{ background-color: #9a9a9a;  text-align: center; border-radius: 8px; color: #fff;  padding: 5px; font-size: 11px;  margin-bottom: 5px;}
+.money{ font-size: 18px;  font-weight: bold;}
+.caution{  width:100%; line-height:20px; margin-bottom:20px; font-size:12px;}
+.tabWrap{ width: 96%; margin: 4% 2%;  background-color: #fff; border-radius: 20px;  border:2px solid #cb9298;}
+.reccomndComment, .pointCommnet{  border-bottom: 2px solid #cb9298; padding: 20px 2%; min-height: 145px;}
+.reccomndComment{  background: url(../img/bubble_point.gif) no-repeat 47px 16px;}
+.pointCommnet{  background: url(../img/bubble_recommend.gif) no-repeat 47px 16px;}
+.pointCommnet{  border-bottom: none;}
+.commentLeft{  float: left;  width: 160px; background: url(../img/bubble_recommend.gif) no-repeat 34px 0px;  padding: 70px 0 20px 5px;}
+.pointCommnet .commentLeft{ background: url(../img/bubble_point.gif) no-repeat 34px 0px;}
+.commentRight{ float: right;}
+.prevPic, .nextPic{ float: left;  font-size: 40px;  cursor: pointer;  margin-top: 200px;  z-index: 500; width: 40px;}
+.nextPic{  float: right;}
+.mainpicArea ul {  position: static;  height: 450px;  float: left;}
+.mainpicArea ul li {  display: none;  position: absolute;  /* opacity: 0; */ left: 50%;  margin-left: -220px;}
+.mainpicArea ul li:first-child {  display: block;}
+.mainpicArea {  overflow: hidden;  /* max-width: 100%; */}
+#tabButton{  display: inline;}
+#tabButton li{ float: left;  width: 33.333%; text-align: center; font-size: 16px;  height:146px;/*2014/01/20 pwb update    margin-bottom: 20px;*/  line-height: 16px;}
+#tabButton li img{ display: block; margin: 0 auto; margin-bottom: 10px;  width: 60%;}
+#tabButton li a{  color: #451213; text-decoration: none;  font-family:"ＭＳ Ｐ明朝", "MS PMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", serif;}
+
+.status{ width: 90%; margin: 20px auto;}
+.status th, .status td{  border: 2px solid #451213;  padding:5px}
+.status thead th{ padding: 20px 4%;}
+.status td.status01{  position: absolute; width: 80%; border: none; margin: -44px 0 0 69.5%;}
+.status thead th img{
+	width: 100%;
+	display: block;
+	margin: 0 auto 10px;
+}
+.status tbody img{  width: 80%; margin: 10px auto;  display: block;}
+.status tbody th{ width:25%;}
+
+.shoumen, .haimen{ text-align: center;}
+.shoumen{ background-color: #f1dcdb;}
+.haimen{ background-color: #c7d9f1;}
+#detailTab table {
+	width: 90%;
+	margin: 20px auto;
+}
+#detailTab th{ background-color: #f1e6d4;}
+#detailTab th,
+#detailTab td{
+	border-bottom: 1px solid $color_border;
+	padding: 10px;
+}
+#detailTab li:first-child{ border-bottom: none;  background: url(../img/minicheck.gif) no-repeat 10px center;  padding-left: 35px;}
+#detailTab li:last-child{ border-top: none; background: url(../img/minicheck.gif) no-repeat 10px center;  padding-left: 35px;}
+
+// #actualTab table{ width: 90%; margin: 20px auto 10px;}
+// #actualTab th, #actualTab td{ border: 2px solid #451213;  padding: 10px;  text-align: center;}
+// #actualTab th{  background: #e8e4e3;}
+// #actualTab p{  padding: 20px 5%;}
+
+#staffTabInner{ padding: 5%;  display: inline-block;}
+
+// #staffComLeft, #staffComRight{ background-color: #f6f2f1;  text-align: center; width: 43%; padding: 10px 2%; /*   2014/01/24 pwb update min-height: 430px;*/}
+
+#staffComLeft img, #staffComRight img{  background: url(../img/staffCom_bg.jpg) no-repeat center center;  padding: 13px 34px; margin-bottom: 10px;}
+// #staffComLeft{ float: left;}
+// #staffComRight{  float: right;}
+#staffTabInner p{ margin-bottom: 20px;}
+.sizeCom{  font-size: 21px;  color: #bc1020;}
+#staffTabInner ul{  margin-bottom: 30px;}
+#staffTabInner li{ font-size: 12px;  margin-bottom: 3px;}
+.staffComment{  font-size: 17px;}
+
+#sizeWrap, #cupWrap, #tallWrap{  padding: 20px 5% 10px;  border-bottom:1px dotted #cb9298;}
+.sizeInner{ width: 100%;}
+.sizeInner h4{ font-size: 20px;  padding-left: 50px; background: url(../img/icon_human.jpg) no-repeat 20px center; margin-left: -20px;}
+.sizeInner ul{  width:100%;;  margin: 10px auto 0;  display: inline-block;}
+.sizeInner li{ float: left;  margin-right: 3%;}
+.sizeInner li:last-child{ margin-right: 0;}
+.sizeInner span{ display:block;  text-align: center; font-size: 12px;  color: #ed9f9f; font-weight: bold;}
+.nofit, .take{ color: #330000!important; font-weight: normal!important;}
+.sizeInner img{  display: block; margin: 3px auto;}
+#tallWrap{  border-bottom: none;}
+#tallWrap li{  height: 125px;}
+#contentsDetail>div {  display: none;  /*2014/01/24 pwb  height:530px;add*/  /* add End */}
+/*2014/01/24 pwb update#contentsDetail>div:first-child {  display: block;}
+*/.thumbnailArea li{  position: relative;}
+#coordWrap{ margin-bottom: 30px;}
+#coordWrap table{  width: 100%;}
+#coordWrap tr:first-child td{  width: 23%; padding: 20px 1%;}
+#coordWrap img{ width: 100%;  border: 1px solid #d29592;}
+#coordWrap td a{ color: #330000; font-size: 16px;  font-weight: bold;}
+#coordWrap tr:last-child td p{ color: #e23737;}
+/* よくある質問 */.faqwrap{ width: 100%;  background-color: #fff;}
+.faqwrap table{ margin-top: -24px;}
+.faqwrap tr{ border-bottom: 1px solid #fff;  display: inline-block;  width: 100%;}
+.faqwrap th{ width: 98%; background-color: #d29592;  color: #fff;  font-size: 27px;  display: block; padding: 0 0 0 2%;  cursor: pointer;  display: inline-block;  border-bottom: 1px #fff solid;}
+.faqwrap th:after{ content: "▼"; float: right; padding: 10% 2%;  font-size: 24px;  background-color: #fff; color: #d29592; text-align: center; width: 68px;  border-bottom: 1px solid #d29592;}
+.faqwrap th span{ font-size: 35px;  vertical-align: top;  float: left;  width: 18%; margin: 4% 1% 0 0;}
+.faqwrap th h4{  width: 50%; font-size: 17px;  float: left;  line-height: 18px;  padding: 4% 3%;}
+.faqwrap td{  padding: 2% 2% 6% 2%;}
+.faqwrap td span{ float: left;  width: 17%;  font-size: 35px;  margin-right: 10px;}
+.faqwrap td div{ width: 80%; font-size: 13px;}
+.faqwrap td div p{ margin-bottom: 10px;}
+.faqwrap td div li{  list-style: decimal outside;  margin-left: 25px;  margin-bottom: 10px;}
+.oneHeight{  margin-top: 15px;}
+.twoHeight{ margin-top: 10px;}
+.threeHeight{ margin-top: 0;}
+.innerList{  margin-top: 5px;}
+.innerList li{ list-style-type: disc!important;  margin-left: 10px;}
+.faqwrap td span, .faqwrap td div {  display: none;}
+/* 商品選択　*//* KMS20140117 */#productSelect{ width: 96%; margin: 20px 2%;}
+#productSelect table th, #productSelect table td{  border: 2px solid #CB9298;  /* KMS2014/01/20 */ padding: 2%;  font-size: 12px;/* 16px; 2014/1/27 */ width: 69%}
+#productSelect table th{ background-color: #f1e6d4;  width: 35%; border: 2px solid #CB9298;  /* KMS2014/01/20 */}
+#productSelect table tr:last-child th, #productSelect table tr:last-child td{ border-bottom: 2px solid #CB9298; /* KMS2014/01/20 */}
+/* 商品選択　*//* KMS20140117 */#productSelect{  width: 96%; margin: 20px 2%;}
+#productSelect table th, #productSelect table td{  border: 2px solid #CB9298;  /* KMS2014/01/20 */ padding: 2%;  font-size: 12px;/* 16px; 2014/1/27 */ width: 69%}
+#productSelect table th{ background-color: #f1e6d4;  width: 35%; border: 2px solid #CB9298;  /* KMS2014/01/20 */}
+#productSelect table tr:last-child th, #productSelect table tr:last-child td{ border-bottom: 2px solid #CB9298; /* KMS2014/01/20 */}
+#productSelectResult{ width: 96%; margin: 20px 2%;}
+#productSelectResult table th, #productSelectResult table td{  border: 1px solid #CB9298;  /* KMS2014/01/20 */ padding: 2%;  font-size: 14px;/* 16px; 2014/1/27 */}
+#productSelectResult table th{  background-color: #f1e6d4;  width: 35%; border: 2px solid #CB9298;  /* KMS2014/01/20 */}
+#productSelectResult table tr:last-child th, #productSelectResult table tr:last-child td{ border-bottom: 2px solid #CB9298; /* KMS2014/01/20 */}
+/**//* メールフォーム */#mailForm{ width: 100%;  margin: 20px 0;}
+#mailForm table th, #mailForm table td, .formBottom li{ border-top: 2px solid #CB9298;  /* KMS2014/01/20 */ padding: 4%;  font-size:20px; width: 70%}
+#mailForm table th{  background-color: #f1e6d4;  width: 150px; border-top: 2px solid #CB9298;    /* KMS2014/01/20 */ border-right: 2px solid #CB9298;  /* KMS2014/01/20 */}
+/* KMS20140116 */#mailForm /*input, */#mailForm textArea{ height: 30px; border: 2px solid #ccc; background-color: #fff; width: 99%;}
+#name01, #name02{ width: 30%!important;}
+#confirm{ height: auto!important; border: none!important; margin: 20px auto!important;  width: 70%!important; display: block;}
+.formBottom li{ width: 92%!important; border-top: none; max-width: 585px; border-top: 2px solid #451213;  border-bottom: 2px solid #451213;}
+.formBottom li:first-child {  background-color: #f1e6d4;  border-bottom: none;}
+textArea{  width: 100%;}
+#mailForm select{  background-color: #fff; margin: 20px 0;}
+.buttonArea, .buttonBack{   /* 2014/01/15 pwb Update  margin: 40px 0; display: inline-block;*/  padding: 0; width: 100%;  text-align: center;}
+#mailForm .buttonArea a, #rentalDay .buttonArea a, .buttonBack a{ padding: 20px 80px; font-size: 28px;  width: 110px; margin: 0;  float: none;}
+#mailForm p{ font-size: 15px;  padding: 0 2%;  margin-bottom: 20px;}
+#telNum1{  width: 20%!important;}
+#telNum2, #telNum3{ width: 28%!important;}
+/* カートの中 */#cartFlow{ height: 90px;}
+#cartFlow li{ width: 14.285%; float: left;  border-top: 4px solid #898a8b;  margin-top: 36px; font-size: 10px;  text-align: center; padding-top: 8px; color: #898a8b;}
+#cartFlow li.current{ border-top: 4px solid #bc1020;  color: #bc1020;}
+#cartFlow li.current:before{  content: '';  background: url(../img/cart.png) no-repeat; position: absolute; width: 37px;  height: 33px; margin-top: -39px;  margin-left: 0.4%;}
+.myPoint{  font-size: 20px;  margin: 20px 0 20px 2%;}
+.myPoint span{  font-size: 25px;  font-weight: bold;  margin: 0 4px;}
+#inCart table{ border-top: 2px solid #cb9298;  border-bottom: 2px solid #cb9298;}
+#inCart table th{ border-right: 2px solid #cb9298;}
+#inCart table th img{  width: 110px; height: auto;}
+#inCart table td{ padding: 2% 0 2% 2%;  width: 100%;}
+.productInfo h3{ font-size: 18px;  font-weight: bold;  margin-bottom: 10px;}
+.productInfo h3 + p{ font-size: 12px;}
+.productInfo .productCode{ font-size: 18px;  margin-bottom: 10px;}
+.productInfo .productPrice{  font-size: 20px;  font-weight: bold;  margin-bottom: 20px;}
+.buttonAreaWrap{ margin-left: 1%;}
+.buttonAreaWrap a.toProduct{ float: left;  background-color: #cb9298;  box-shadow: 0px 4px 0px -1px #88464d;   color: #451213; margin-right: 10px; font-weight: bold;  font-size: 13px;}
+.buttonAreaWrap a.productDel{  float: left;  background-color: #ccc; box-shadow: 0px 4px 0px -1px #999;  color: #5e5e5e; margin-right: 0;  font-size: 11px;}
+.buttonBack a{ padding: 15px 25px; background-color: #ccc; box-shadow: 0px 4px 0px -1px #555;  font-size: 21px;}
+#totalPrice{ display: inline-block;  width: 96%; padding: 4% 2%;}
+#totalPrice table{  width: 50%; float: left;  border: none; font-size: 12px;}
+#totalPrice table th{  width: 60%; border: none; text-align: right;  padding: 5px; font-weight: bold;}
+#totalPrice table td{  width: 1%;  text-align: right;}
+#totalPrice table td.price{  width: 35%;}
+#totalPrice p{  float: right; margin-right: 2%; font-size: 13px;  margin-top: 27px; font-weight: bold;}
+#totalPrice .kugiri{ font-size: 60px;  margin: 0 0 0 20px; vertical-align: middle; color: #cb9298;}
+#total{ color: #bc1020; margin-left: 5px;}
+#rentalDay .sectionInner ul{  width: 90%; margin: 20px auto;}
+#rentalDay .sectionInner ul li{  padding: 10px 20px 30px 10px; background-color: #cb9298;  height: 40px; margin-bottom: 35px;}
+#rentalDay .sectionInner ul li:last-child{ background-color: #f56867;}
+#rentalDay .sectionInner ul li:after{  content: '▼'; font-size: 60px;  position: absolute; color: #cb9298; left: 50%;  margin: 39px 0 0 -30px;}
+#rentalDay .sectionInner ul li.oneDate:after{ margin-top: 10px;}
+#rentalDay .sectionInner ul li:last-child:after{  content: '';}
+#rentalDay .sectionInner ul li:last-child p span{  color: #bc1020;}
+#rentalDay .sectionInner ul li p{ float: left;  width: 50%; text-align: center; color: #fff;  font-size: 18px;  font-weight: bold;}
+#rentalDay .sectionInner ul li.oneDate{  padding: 10px 20px 0;}
+#rentalDay .sectionInner ul li p.twoDate{ margin-top: 16px;}
+.rentalDate{  background-color: #fff; color: #451213!important;}
+/* お支払い方法の指定 */#payment, #point, #messageCard{  background-color: #fff;}
+#payment label{ font-size: 24px;}
+#point table{  width: 100%;}
+#payment p{  padding: 20px 0;}
+#point .sectionInner{  padding: 20px 0;}
+#point input[type="radio"]{    background: url(../img/radio_off.png) no-repeat 4% center;    background-size: 33px;}
+#point input[type="radio"]:checked{    background: url(../img/radio_on.png) no-repeat 4% center;    background-size: 33px;}
+#point p{ text-align: center; font-size: 16px;  margin-bottom: 10px;  padding-top: 20px;}
+#point input[type="text"]{ height: 60px; width: 150px; border: 2px solid #ababab;}
+#payPoint{ text-align: center;}
+#payPoint input{  font-size: 30px;  text-align: right;}
+#nowPoint{ color: #cb9298; padding-top: 0!important;}
+#point .price{  font-size: 22px;  font-weight: bold;}
+#point th, #point td{  text-align: left; border: 1px solid #cb9298;  padding: 4%;}
+#card{ border: 2px solid #cb9298;  background: url(../img/select_pink.gif) no-repeat right;  width: 92%; margin: 20px 4%;}
+#card + p{ font-weight: bold;  font-size: 20px;  margin-left: 3%;}
+#messageCard .buttonArea a{  float: none;}
+#point_off + label, #point_on + label{ text-indent: -9999px; padding: 20px;}
+#etc{  width: 94%; margin: 0 3%; border: 2px solid #cb9298;}
+#next{ margin: 20px auto;  display: block;}
+.hiddenLabel{ text-indent: -9999px;}
+/* お支払い方法の指定 */#conformItem table, #conformAddress table, #paycount table{  width: 100%;}
+#conformItem th, #conformAddress th, #paycount th{ background-color: #f1e6d4;  padding: 4%;  border: 2px solid #cb9298;}
+#conformItem thead th{ padding: 4%;  font-size: 13px;  text-align: center;}
+#conformItem td, #conformAddress td, #paycount td{  padding: 4%;  border: 2px solid #cb9298;}
+#conformItem td h5{  font-weight: bold;}
+#conformAddress .buttonArea, #paycount .buttonArea{  text-align: center; margin: 70px 0 50px;  height: 70px;}
+#conformAddress .buttonArea a, #paycount .buttonArea a{ float: none;  padding: 2%;}
+.textRight{  text-align: right;}
+.red{  color: #bc1020;}
+#paycount p{  padding: 2%;}
+#paycount .buttonArea a{ padding: 5% 20%;}
+#paycount table{ font-size: 20px;}
+#paycount label{ margin-top: -15px;}
+/*  */.favList table{  width: 100%;}
+.favList tr{ border: 2px solid #f69c9e;}
+.favList th{ padding: 2%;}
+.favList th img{ border: 2px solid #ecc7cb;}
+.favStar, .favReview{  float: left;  font-size: 14px;}
+.favStar{  margin-right: 2%; font-size: 11px;}
+.favStar .star, .favStar .star_gray{ float: left;  font-size: 20px;  width: 18px;}
+.favReview{  font-weight: bold;  margin-top: 6px;}
+.condition{  clear: both;  font-size: 15px;  padding-top: 10px;}
+.rightLink{  width: 10%; background-color: #fdd0cd;  border-top: 2px solid #f69c9e;  border-bottom: 2px solid #f69c9e;}
+.rightLink a{ font-size: 26px;  text-decoration: none;  color: #451213; padding: 102px 19px;}
+#favBottomWrap{  padding: 5px; margin: 20px 0; display: inline-block;}
+#favBottomLeft{  float: left;  width: 50%;}
+#favBottomLeft img{ width: 100%;}
+#favBootomRight{ float:right;  width: 48%;}
+#favBootomRight p{  margin-bottom: 10px;}
+#favBootomRight ul{  line-height: 70px;  margin-bottom: 20px;  color: #d1a0a5;}
+#favBootomRight li{ padding-left: 105px;}
+#favBootomRight li:first-child{  background: url(../img/inFavImg.jpg) no-repeat 20px center;}
+#favBootomRight li:last-child{  background: url(../img/outFavImg.jpg) no-repeat 20px center;}
+/* 注文内容の確認 */#changeorder .statusWrap{ text-align: right;  padding: 10px;  font-weight: bold;}
+.statusWrap th img{  width: 50%;}
+#changeorder table{ border: 2px solid #cb9298;}
+#changeorder th,{  border-right: 2px solid #cb9298;}
+#changeorder .status01{  background-color: #e5d2da;  padding: 10px;}
+#changeorder .status02{  background-color: #c3e9f3;}
+#changeorder .status03{  background-color: #f8d7d6;}
+#changeorder .status04{  background-color: #f0dec1;}
+#changeorder .status05{  background-color: #e4e2e1;}
+/* マイブランド */#nextPrev{ width: 96%; padding: 30px 2%; display: inline-block;}
+#nextWeek a, #prevWeek a{  padding: 15px 25px; color: #fff;  background-color: #cb9298;  box-shadow: 0px 4px 0px -1px #88464d; border-radius: 8px; text-decoration: none;}
+#nextWeek{ float: left;}
+#prevWeek{ float: right;}
+#thisWeekWrap span{ text-align: center; font-size: 27px;  margin-bottom:20px;}
+#thisWeek{  padding: 2%;  background-color: #f1e6d4;  display: inline-block;  width: 96%; margin-bottom: 20px;}
+#thisWeekLeft{ float: left;  width: 50%;}
+#thisWeekLeft li{ margin-bottom: 10px;  text-align: center; padding: 2% 6%; font-weight: bold;  font-size: 14px;}
+#thisWeekLeft li:first-child{  background-color: #cae5fe;}
+#thisWeekLeft li:nth-child(2){ background-color: #d7eea7;}
+#thisWeekLeft li:last-child{ background-color: #ffd5a3;  margin-bottom: 0;}
+#thisWeekRight{ float: right; margin-right: 2%; width: 45%;}
+#thisWeekRight img{ width: 100%;}
+#myBrandWrap p{  text-align: center; font-size: 17px;  display: block;}
+#myBrandWrap #myBrand{  font-size: 46px;}
+#myBrandWrap #myBrandKana{ font-weight: bold;  margin: -13px 0 30px;}
+#myBrandWrap #brandComment{ padding: 2%;  width: 90%; margin:0 auto 30px; background-color: #fff; border: 2px solid #fdd0cd;  border-radius: 8px;}
+#myBrandImg ul{ width: 96%; padding: 55px 0 20px; display: inline-block;  background: url(../img/mybrand_chara.png) no-repeat top right;  margin: -45px 2% 20px 0;}
+#myBrandImg li{  float: left;  margin-right: 3%; width: 35%;}
+#myBrandImg li:last-child{  margin: 30px 0 0; width: 22%;}
+#myBrandImg li img{ width: 100%;}
+#myBrandWrap h4{ font-size: 30px;  padding: 2% 0 0 2%;;  width: 98%;}
+#myBrandWrap #brandAge{ background-color: #cae5fe;}
+#myBrandWrap #brandScene{  background-color: #d7eea7;}
+#myBrandWrap #brandAtmosphere{ background-color: #ffd5a3;}
+#myBrandWrap #brandAge + p, #myBrandWrap #brandScene + p, #myBrandWrap #brandAtmosphere + p, #lineupWrap + p, #lineupWrap + p + p, .notRecommend p{  padding: 2%;  font-size: 15px;  text-align: left; margin-bottom: 20px;}
+#lineupWrap{ width: 96%; padding: 2%;  display: inline-block;}
+#lineupWrap li{  width: 31.3%; float: left;  padding: 1%;}
+#lineupWrap li img{  width: 100%;}
+.notRecommend h5{  padding: 2%;  background-color: #ccc; font-size: 20px;}
+.wanpiConcept p{ text-align: center; margin-bottom: 10px;}
+.wanpiConcept{ padding: 20px 2%; margin-top: 10px; display: inline-block;}
+.wanpiConcept p span{  font-weight: bold;  font-size: 18px;}
+.wanpiConcept img{ float: left;}
+#mybrandConcept, #mybrandConcept + p{  float: right; text-align: left; width: 65%;}
+#mybrandConcept{  margin-top: 30px;}
+.backNumber{  padding-bottom: 20px;}
+.backNumber li{ margin: 4%; background-color: #fff; padding: 2%;  border-radius: 8px; border: 1px solid pink;}
+.backNumber li:before{  content: "■"; float: left;  padding: 0 5px 30px 0;  font-size: 14px;}
+.backNumber li a{  font-size: 14px;  color: #451213; display: block;}
+/* 婚活企画 */#amourImg{  width: 96%; padding: 10px 2%; background-color: #f1e6d4;}
+#amourImg ul{  display: inline-block;  width: 100%;}
+#amourImg li{  float: left;  width: 32%;}
+#amourImg li img{ width: 100%;}
+#amourImg li:nth-child(2){ margin: 0 2%;}
+#reviewValue{ font-size: 40px;  padding: 20px 0;  width: 15%;}
+.mensReview img{  float: right; padding-right: 2%;}
+#lineupLinkWrap{ width: 98%; padding: 1%;  display: inline-block;  margin: 20px 0 30px;}
+#lineupLinkWrap ul{  display: inline-block;}
+#lineupLinkWrap li{  float: left;  padding: 5px; border: 2px solid #d29592;  width: 29%;}
+#lineupLinkWrap li:nth-child(2){  margin: 0 1.4%;}
+#lineupLinkWrap li a{ text-decoration: none;}
+#lineupLinkWrap li img{  width: 100%;}
+#lineupLinkWrap li span{ font-size: 13px;  text-align: center; display: block; padding: 10px 0;  color: #451213;}
+#amourImg + a{  text-align: center; color: #bc1020; display: block; margin: 10px 0 30px;}
+.amour p, .amourReview p{  padding: 0 2% 15px; font-size: 14px;}
+.amour #nextPrev + p{  font-size: 20px;  padding-bottom: 5px;}
+.mensReview{ background-color: #f1e6d4;  padding: 4px 0; display: inline-block;  width: 100%;}
+.mensReview p{ color: #bc1020; float: left;  font-size: 13px;  margin-left: 2%;  font-weight: bold;  padding: 40px 0;  width: 57%;}
+#amourSummary{  padding: 20px 2%; display: block; background-color: #f1e6d4;  color: #bc1020; font-weight: bold;}
+/* ベスドレ */.besdreHead p{ margin: 20px 0 10px;}
+#besdreChara{  background-color: #f1e6d4;  padding: 10px 2%;}
+#besdreChara img{ width: 96%;}
+#besdreChara p{ margin: -9px 0 0 2%;  font-weight: bold;  font-size: 14px;}
+.besdre p{ padding: 20px 2%;}
+#besdreImg{ margin-bottom:20px;}
+#besdreImg ul{  display: inline-block;}
+#besdreImg li{ float: left;  width: 20%;}
+#besdreImg li:first-child{  width: 40%;}
+#besdreImg li img{  width: 100%;}
+.besdre h5{  background-color: #cb9298;  font-size: 20px;  font-weight: bold;  padding: 5px 0 0 2%}
+/* お届け先の追加 */#changedelivery table{ width: 100%;}
+#changedelivery th, #changedelivery td{  border: 2px solid #d29592;}
+#changedelivery label{ text-indent: -9999px;}
+/* 注文完了 */#complate{  border-bottom: 2px solid #451213;}
+#complate p{  text-align: center; margin: 20px 0;}
+#complate img{  margin: 20px 0;}
+#complateBottom p{  padding: 0 2%;  margin: 0 0 20px;}
+.toGuide{ margin: 20px auto 50px; display: inline-block;  text-align: center;}
+.toGuide img{ width: 80%;}
+/* 簡単ガイド */.guide img{  display: block; width: 96%;}
+.guide p{ width: 90%; font-size: 20px;  margin: 15px;}
+.guide:nth-child(2) p{  text-align: center; /* color: #bc1020; */}
+.guide ul{  padding: 0px 2%;}
+.guide li{ list-style: decimal outside;  margin: 0 0 10px 40px;  font-size: 20px;  font-weight: bold;}
+/* 社員紹介 */.staffWrap{  margin: 20px 0 0; clear: both;  display: inline-block;}
+.staffWrap .number{  font-size: 20px;  display: block; border-bottom: 2px solid #d29592; margin-bottom: 10px;}
+.staffImg{ float: left;  margin-right: 1%; width: 25%;}
+.staffImg img{  width: 100%;}
+.staffProf{  float: left;  width: 74%;}
+.staffName{ font-size: 30px;  text-decoration: underline;}
+.kana{  font-size: 18px;  text-decoration: none!important;}
+.birth{  margin: -10px 0 0 36px; position: absolute;}
+.staffComment{  width: 95%;}
+.staff01{ background:url(../img/staff01_commerntBg.png) no-repeat right bottom;}
+.staff02{ background:url(../img/staff02_commerntBg.png) no-repeat right bottom;}
+.staff03{ background:url(../img/staff03_commerntBg.png) no-repeat right bottom;}
+.staff04{ background:url(../img/staff04_commerntBg.png) no-repeat right bottom;}
+.staff05{ background:url(../img/staff05_commerntBg.png) no-repeat right bottom;}
+.motto{ font-size: 25px;  color: #bc1020; text-shadow: 3px 4px 5px #ddd;  margin: 20px 0 0 0;}
+.motto + p{ padding: 3px 27% 0 2%;  font-size: 15px;  line-height: 20px;}
+/* 2014/01/15 pwb add*/#tabButton a{ /*margin:5px;*/ width:90%;}
+/* 2014/01/15 add End *//* 2014/01/16 pwb add*/.btn_area {    padding: 10px;    clear: both;}
+a.btn_more,a.btn_more:link,a.btn_more:visited,a.btn_more:hover {    color: #000;    font-size: 16px;    padding: 5px 0;    font-weight: bold;    text-decoration: none;    text-align: center;    border: 1px solid #A9ABAD;    border-radius: 5px;    -moz-border-radius: 5px;    -webkit-border-radius: 5px;    display: block;    background: #FFF;    clear: both;    margin: 10px 0;}
+.searchWrap th{  font-family: "ＭＳ Ｐ明朝", "MS PMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", serif;   font-weight: bold;  color:#000;}
+/* 2014/01/16 add End *//*2014/01/20 pwb add*/.unit-rating li.current-rating {    background: url("../img/rating.png") repeat scroll left bottom transparent;    display: block;    height: 15px;    position: absolute;    text-indent: -9000px;    z-index: 1;}
+.unit-rating li{    text-indent: -90000px;  padding:0px;  margin:0px; /*\*/ float: left;  /* */ }
+/*add End*//*2014/01/28 pwb add*/.mainpicArea>ul>li>img{ display:none;}
+.mainpicArea ul li:first-child>img {  display:inline;}
+/* add End */

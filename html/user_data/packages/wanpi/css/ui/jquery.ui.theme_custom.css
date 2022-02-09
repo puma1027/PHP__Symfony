@@ -1,0 +1,69 @@
+/*
+ * jQuery UI CSS Framework 1.8.16
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ *
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/
+ */
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { 
+	border: 0/*1px solid #d3d3d3 RCHJ Remark 2013.03.11*//*{borderColorDefault}*/; 
+	background: #FFFFFF/*{bgColorDefault: 00B053}*/ ; 
+	font-weight: normal/*{fwDefault}*/; 
+	text-align: center;
+	font-size: small;/*large; RCHJ Remark 2013.03.11*/
+	color: #555555/*{fcDefault}*/; 
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { 
+	color: #555555/*{fcDefault}*/; text-decoration: none; 
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { 
+	border: 0/*1px solid #999999 RCHJ Remark 2013.03.11*//*{borderColorHover}*/; 
+	/*background: #dadada*//*{bgColorHover}*/ /*url(images/ui-bg_glass_75_dadada_1x400.png)*//*{bgImgUrlHover}*/ /*50%*//*{bgHoverXPos}*/ /*50%*//*{bgHoverYPos}*/ /*repeat-x*//*{bgHoverRepeat}*//*; RCHJ 2013.03.11 Remark*/ 
+	font-weight: normal/*{fwDefault}*/; 
+	color: #212121/*{fcHover}*/; 
+}
+.ui-state-hover a, .ui-state-hover a:hover { color: #212121/*{fcHover}*/; text-decoration: none; }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	 background-color: #c77485; /*{borderColorActive}*/
+	 display: block;
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #212121/*{fcActive}*/; text-decoration: none; }
+.ui-widget :active { outline: none; }
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {border: 1px solid #fcefa1/*{borderColorHighlight}*/; background: #fbf9ee/*{bgColorHighlight}*/ url(images/ui-bg_glass_55_fbf9ee_1x400.png)/*{bgImgUrlHighlight}*/ 50%/*{bgHighlightXPos}*/ 50%/*{bgHighlightYPos}*/ repeat-x/*{bgHighlightRepeat}*/; color: #363636/*{fcHighlight}*/; }
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: #363636/*{fcHighlight}*/; }
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border: 1px solid #cd0a0a/*{borderColorError}*/; background: #fef1ec/*{bgColorError}*/ url(images/ui-bg_glass_95_fef1ec_1x400.png)/*{bgImgUrlError}*/ 50%/*{bgErrorXPos}*/ 50%/*{bgErrorYPos}*/ repeat-x/*{bgErrorRepeat}*/; color: #cd0a0a/*{fcError}*/; }
+.ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a { color: #cd0a0a/*{fcError}*/; }
+.ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text { color: #cd0a0a/*{fcError}*/; }
+.ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary { font-weight: bold; }
+.ui-priority-secondary, .ui-widget-content .ui-priority-secondary,  .ui-widget-header .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { opacity: 1; filter:Alpha(Opacity=100); background-image: none; }
+.ui-state-gray{
+	background: #9a9a9a!important;
+	opacity: 1!important; filter:Alpha(Opacity=100)!important; 
+}
+
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset{
+	float: none;
+	text-align: center;
+}
+
+.ui-state-red{
+	background-color: #eecccc!important;	
+}
+
+.ui-widget-header {
+    background: none;
+    border: 0;
+    color: #222222;
+    font-weight: bold;
+}
